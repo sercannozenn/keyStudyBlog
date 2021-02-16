@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Article;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Http\Request;
@@ -17,7 +18,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    public const HOME = '/home';
+    public const HOME = '/login';
 
     /**
      * The controller namespace for the application.
@@ -37,7 +38,8 @@ class RouteServiceProvider extends ServiceProvider
     {
         $this->configureRateLimiting();
 
-        $this->routes(function () {
+        $this->routes(function ()
+        {
             Route::prefix('api')
                 ->middleware('api')
                 ->namespace($this->namespace)
@@ -46,6 +48,11 @@ class RouteServiceProvider extends ServiceProvider
             Route::middleware('web')
                 ->namespace($this->namespace)
                 ->group(base_path('routes/web.php'));
+        });
+
+        Route::bind('article', function ($slug)
+        {
+            return Article::with('user', 'ratings')->where('slug', $slug)->Published()->firstOrFail();
         });
     }
 
@@ -56,7 +63,8 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function configureRateLimiting()
     {
-        RateLimiter::for('api', function (Request $request) {
+        RateLimiter::for('api', function (Request $request)
+        {
             return Limit::perMinute(60)->by(optional($request->user())->id ?: $request->ip());
         });
     }
