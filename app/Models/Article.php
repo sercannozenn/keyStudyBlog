@@ -17,6 +17,8 @@ class Article extends Model
     protected $primaryKey = 'id';
     protected $guarded = [];
 
+    protected $appends = ['next', 'previous', 'single_calculate'];
+
     public function getRouteKeyName()
     {
         return 'slug';
@@ -32,7 +34,7 @@ class Article extends Model
         return Article::where('id', '<', $this->id)->Published()->orderBy('id', 'DESC')->first();
     }
 
-    public function singleCalculate()
+    public function getSingleCalculateAttribute()
     {
         $countData = $this->ratings()->count();
         $percent = round($countData * 30 / 100);
@@ -41,15 +43,13 @@ class Article extends Model
         $countData += $percent;
 
         $total = $percent70Data + $percent30Data;
-        return $total==0 ? 0 : round($total / $countData, 1);
+        return $total == 0 ? 0 : round($total / $countData, 1);
     }
-
 
     public function ratings()
     {
-        return $this->hasMany('App\Models\ArticleRating',  'article_id', 'id');
+        return $this->hasMany('App\Models\ArticleRating', 'article_id', 'id');
     }
-
 
     public function user()
     {

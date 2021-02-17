@@ -22,6 +22,7 @@ Route::middleware(['auth', 'role:Admin|Moderator|Writer'])->group(function ()
         Route::get('/edit/{id}', [ArticleController::class, 'edit'])->name('article.edit')->whereNumber('id');
         Route::post('/edit/{id}', [ArticleController::class, 'update'])->whereNumber('id');
         Route::post('/delete', [ArticleController::class, 'destroy'])->name('article.delete');
+        Route::get('/show/{id}', [ArticleController::class, 'show'])->name('article.show')->whereNumber('id');
     });
 
 

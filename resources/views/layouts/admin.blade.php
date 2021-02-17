@@ -88,15 +88,15 @@
                 <li class="label">Menu</li>
 
                 <li {{ Route::is('dashboard') ? 'class=open' : ''}}>
-                    <a href="{{ route('dashboard') }}" class="yay-sub-toggle waves-effect waves-blue"> <i
+                    <a href="{{ route('dashboard') }}" class="waves-effect waves-blue"> <i
                             class="fa fa-dashboard"></i> Dashboard
                     </a>
                 </li>
-                <li {{ Route::is('dashboard') ? 'class=open' : ''}}>
-                    <a href="widgets.html" class=" waves-effect waves-blue"> <i class="fa fa-magic"></i> Articles </a>
+                <li {{ Route::is('article.list') ? 'class=open' : ''}}>
+                    <a href="{{ route('article.list') }}" class=" waves-effect waves-blue"> <i class="fa fa-magic"></i> Articles </a>
                 </li>
                 @role('Admin|Moderator')
-                <li {{ Route::is('dashboard') ? 'class=open' : ''}}>
+                <li>
                     <a href="layouts.html" class=" waves-effect waves-blue"> <i class="mdi mdi-image-timer-auto"></i>
                         Reports - Test Amaçlı / Admin-Moderator Kısıtlaması
                     </a>
@@ -104,7 +104,7 @@
                 @endrole
 
                 @role('Admin')
-                <li {{ Route::is('dashboard') ? 'class=open' : ''}}>
+                <li>
                     <a href="layouts.html" class=" waves-effect waves-blue"> <i class="mdi mdi-image-timer-auto"></i>
                         Users - Test Amaçlı / Admin Kısıtlaması
                     </a>

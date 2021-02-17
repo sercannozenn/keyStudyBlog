@@ -23,7 +23,7 @@
     <div class="card-panel">
         <div class="row">
             <div class="col-md-12">
-                <h1>Test Başlık</h1>
+                <h3>Welcome To Dashboard</h3>
             </div>
         </div>
     </div>

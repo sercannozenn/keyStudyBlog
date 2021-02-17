@@ -159,4 +159,24 @@ class ArticleController extends Controller
             ->setEncodingOptions(JSON_UNESCAPED_UNICODE);
 
     }
+
+    public function show(Request $request, $id)
+    {
+        $guard = $this->authService->guard();
+
+        $article = $this->articleService->getById($id);
+
+        switch ($guard)
+        {
+            case 'web':
+                return view('admin.article_show', compact('article'));
+            case 'api':
+                return response()->json()
+                    ->setData($article)
+                    ->setStatusCode(200)
+                    ->setCharset('utf-8')
+                    ->header('Content-Type', 'application/javascript')
+                    ->setEncodingOptions(JSON_UNESCAPED_UNICODE);
+        }
+    }
 }

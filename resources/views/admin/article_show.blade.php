@@ -11,7 +11,7 @@
                 <div class="card">
                     <div class="card-header">
                         <h5 class="text-capitalize">
-                            {{ $article->title }}
+                            {{ $article->title }} - Preview
                         </h5>
                         <?php
                         $calculateRate = $article->singleCalculate;
@@ -49,7 +49,7 @@
                                    value="5" />
                             <label class="full" for="star5" title="5"></label>
                             <input type="radio" id="star4" name="rating" value="4"
-                                />
+                            />
                             <label class="full" for="star4" title="4"></label>
                             <input type="radio" id="star3" name="rating"
                                    value="3" />
@@ -64,53 +64,10 @@
 
                     </div>
                 </div>
-                @if ($article->previous())
-                    <a href="{{ route('front.articleDetail', ['article' => $article->previous()->slug]) }}"> < Previous Article</a>
-                @endif
-                @if ($article->previous() && $article->next())
-                -
-                @endif
-                @if ($article->next())
-                    <a href="{{ route('front.articleDetail', ['article' => $article->next()->slug]) }}">Next Article ></a>
-                @endif
-
             </div>
         </div>
     </div>
 @endsection
 @section('js')
-    <script>
-        $('input[name=rating]').change(function ()
-        {
-            let rate = $(this).val();
-            let id = '{{ $article->id }}';
-            let self=$(this);
-            $.ajax({
-                method: 'POST',
-                url: '{{ route('front.articleRate', ['article' => request('article')->slug]) }}',
-                data: {
-                    rate: rate,
-                    id: id
-                },
-                success: function (response)
-                {
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'You used your vote.',
-                        showConfirmButton: true,
-                    });
-                },
-                error: function (jqXHR, exception)
-                {
-                    Swal.fire({
-                        icon: 'error',
-                        title: jqXHR.statusText,
-                        text:'Please login and vote.',
-                        showConfirmButton: true,
-                    });
-                    self.prop('checked', false);
-                }
-            })
-        })
-    </script>
+
 @endsection

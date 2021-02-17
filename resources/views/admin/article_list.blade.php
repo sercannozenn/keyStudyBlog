@@ -8,7 +8,15 @@
     <div class="card-panel">
         <div class="row">
             <div class="col-md-12">
-                <h4>Articles</h4>
+                <div class="row">
+                    <div class="col m4">
+                        <h4>Articles</h4>
+
+                    </div>
+                    <div class="col m8">
+                        <a href="{{ route('article.create') }}" class="btn btn-success btn-medium">New Article</a>
+                    </div>
+                </div>
                 <hr>
                 <table class="table table-hover">
                     <thead>
@@ -29,6 +37,7 @@
                         <tr id="row-{{ $item->id }}">
                             <th>{{ $item->id }}</th>
                             <th>
+                                <a href="{{ route('article.show', ['id' => $item->id]) }}"> <i class="fa fa-eye "></i></a>
                                 <a href="{{ route('article.edit', ['id' => $item->id]) }}"> <i class="fa fa-edit "></i></a>
                                 <a href="javascript:void(0)" class="deleteArticle" data-id="{{ $item->id }}"> <i
                                         class="fa fa-trash"></i></a>

@@ -23,29 +23,29 @@
                         </div>
 
                         <div class="card-footer">
-                            <h6>Your Rate</h6>
                             <?php
-                            $calculateRate = $item->singleCalculate();
+                            $calculateRate = $item->singleCalculate;
                             ?>
-                            <fieldset class="rating mr-5">
-                                <input type="radio" id="star5" name="rating-{{ $item->id }}"
-                                       value="5" {{ round($calculateRate) == 5 ? 'checked' :'' }}/>
-                                <label class="full" for="star5" title="5"></label>
-                                <input type="radio" id="star4" name="rating-{{ $item->id }}" value="4"
-                                    {{ round($calculateRate) == 4 ? 'checked' :'' }}/>
-                                <label class="full" for="star4" title="4"></label>
-                                <input type="radio" id="star3" name="rating-{{ $item->id }}"
-                                       value="3" {{ round($calculateRate) == 3 ? 'checked' :'' }}/>
-                                <label class="full" for="star3" title="3"></label>
-                                <input type="radio" id="star2" name="rating-{{ $item->id }}" value="2"
-                                    {{ round($calculateRate) == 2 ? 'checked' :'' }}/>
-                                <label class="full" for="star2" title="1"></label>
-                                <input type="radio" id="star1" name="rating-{{ $item->id }}"
-                                       value="1" {{ round($calculateRate) == 1 ? 'checked' :'' }}/>
-                                <label class="full" for="star1" title="1"></label>
-                                </label>
-                            </fieldset>
-                            <h5 class="ml-5">Rate: {{ $calculateRate }}</h5>
+                                <fieldset class="ratingResult mr-5 float-left">
+
+                                    <label for="star5" status="{{round($calculateRate) == 5 ? 'true' :'false'  }}"
+                                           title="5"></label>
+
+                                    <label for="star4" status="{{ round($calculateRate) >= 4 ? 'true' :'false' }}"
+                                           title="4"></label>
+
+                                    <label for="star3" status="{{ round($calculateRate) >= 3 ? 'true' :'false' }}"
+                                           title="3"></label>
+
+                                    <label for="star2" status="{{ round($calculateRate) >= 2 ? 'true' :'false' }}"
+                                           title="1"></label>
+
+                                    <label for="star1" status="{{ round($calculateRate) >= 1 ? 'true' :'false'  }}"
+                                           title="1"></label>
+                                </fieldset>
+
+                                <h5 class="ml-5">Rate: {{ $calculateRate }}</h5>
+
                         </div>
                     </div>
                 </div>
@@ -54,7 +54,5 @@
     </div>
 @endsection
 @section('js')
-    <script>
 
-    </script>
 @endsection
