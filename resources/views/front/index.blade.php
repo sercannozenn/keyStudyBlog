@@ -5,18 +5,18 @@
     <link rel="stylesheet" href="{{ asset('assets/front/css/rate.css') }}">
 @endsection
 @section('content')
-    <div class="container mt-5">
+    <div class="container my-3">
         <div class="row">
             @foreach($list as $item)
-                <div class="col-md-4">
+                <div class="col-md-4 mt-5">
                     <div class="card">
                         <div class="card-header">
-                            <h5 class="text-capitalize">
+                            <h6 class="text-capitalize">
                                 {{ $item->title }}
-                            </h5>
+                            </h6>
                         </div>
                         <div class="card-body">
-                            {!! $item->body !!}
+                            {!! strip_tags(substr($item->body, 0, 50)) !!}
                             <hr>
                             <a href="{{ route('front.articleDetail', ['article' => $item->slug]) }}"
                                class="btn btn-primary">Read More</a>
@@ -50,6 +50,9 @@
                     </div>
                 </div>
             @endforeach
+            <div class="col-md-12">
+                {{ $list->links() }}
+            </div>
         </div>
     </div>
 @endsection

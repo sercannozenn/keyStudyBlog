@@ -7,7 +7,7 @@
 @section('content')
     <div class="card-panel">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col m12">
                 <div class="row">
                     <div class="col m4">
                         <h4>Articles</h4>
@@ -44,7 +44,7 @@
                             </th>
                             <th>{{ $item->title }}</th>
                             <th>{{ $item->slug }}</th>
-                            <th>{{ strip_tags(substr($item->body,0,100)) }}</th>
+                            <th>{{ strip_tags(substr($item->body,0,50)) }}</th>
                             <th>{{ $item->user->name }}</th>
                             <th>{{ \Carbon\Carbon::parse($item->publish_date)->format('d-m-Y H:i:s')}}</th>
                             <th>{{ \Carbon\Carbon::parse($item->created_at)->format('d-m-Y H:i:s')}}</th>
@@ -53,6 +53,8 @@
                     @endforeach
                     </tbody>
                 </table>
+
+                {{ $list->links('vendor.pagination.custom-paginate') }}
 
             </div>
         </div>

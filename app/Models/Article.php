@@ -17,21 +17,21 @@ class Article extends Model
     protected $primaryKey = 'id';
     protected $guarded = [];
 
-    protected $appends = ['next', 'previous', 'single_calculate'];
-
     public function getRouteKeyName()
     {
         return 'slug';
     }
 
-    public function next()
+    public function getNextAttribute()
     {
-        return Article::where('id', '>', $this->id)->Published()->orderBy('id', 'ASC')->first();
+        $result = self::where('id', '>', $this->id)->Published()->orderBy('id', 'ASC')->first();
+        return $result ? $result : null;
     }
 
-    public function previous()
+    public function getPreviousAttribute()
     {
-        return Article::where('id', '<', $this->id)->Published()->orderBy('id', 'DESC')->first();
+        $result = self::where('id', '<', $this->id)->Published()->orderBy('id', 'DESC')->first();
+        return $result ? $result : null;
     }
 
     public function getSingleCalculateAttribute()
@@ -66,8 +66,8 @@ class Article extends Model
         return $query->where('publish_date', '<', now());
     }
 
-    // Moderatör ve Writer kendi makalelerini siler
-    // Admin Tümünü Silebilir.
+    // Moderatör ve Writer kendi makalelerini görür ve siler
+    // Admin Tümünü Silebilir ve görebilir.
     public function scopeUserArticles($query)
     {
         $role = Auth::user()->roles[0]->name;

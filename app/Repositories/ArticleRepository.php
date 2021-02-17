@@ -35,15 +35,16 @@ class ArticleRepository
 
     public function getAllArticle()
     {
-        return $this->article->skipCache()->UserArticles()->with('user')->get();
+        return $this->article->skipCache()->UserArticles()->with('user')->paginate(10);
     }
 
     public function getAllArticleFront()
     {
-        return $this->article->with('user')
+        return $this->article
+            ->with('user')
             ->StatusActive()
             ->Published()
-            ->get();
+            ->paginate(12);
     }
 
     public function getById($id)
@@ -73,6 +74,14 @@ class ArticleRepository
     {
         $article = $this->article->skipCache()->UserArticles()->where('id', $id)->firstOrFail();
         return $article->delete();
+    }
+
+    public function changeStatusById($id)
+    {
+        $article = $this->article->skipCache()->UserArticles()->where('id', $id)->firstOrFail();
+        $article->status = $article->status ? 0 : 1;
+        $article->save();
+        return $article;
     }
 
 }

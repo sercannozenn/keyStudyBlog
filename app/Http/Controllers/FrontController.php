@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Helper\RatingCalculatorHelper;
 use App\Models\Article;
 use App\Services\ArticleRateService;
 use App\Services\ArticleService;

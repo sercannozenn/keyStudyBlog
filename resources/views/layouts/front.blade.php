@@ -8,6 +8,19 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title')</title>
     <link rel="stylesheet" href="{{ asset('assets/front/css/bootstrap.min.css') }}">
+    <style>
+        footer{
+            height: 50px;
+            background-color: #0a6aa1;
+            color: #fff;
+            text-align: center;
+            font-size: 14px;
+            letter-spacing: 0.14em;
+            font-weight: bold;
+            line-height: 50px;
+            vertical-align: center;
+        }
+    </style>
     @yield('css')
 </head>
 <body>
@@ -61,6 +74,9 @@
 
 @yield('content')
 
+<footer>
+    &copy; {{ date('Y') }} Sercan Özen
+</footer>
 <script src="{{ asset('assets/front/js/jquery-3.5.1.js') }}"></script>
 <script src="{{ asset('assets/front/js/bootstrap.js') }}"></script>
 <script src="{{ asset('assets/front/js/bootstrap.bundle.js') }}"></script>

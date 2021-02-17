@@ -78,6 +78,25 @@ class ArticleService
         return $article;
     }
 
+    public function changeStatusById($id)
+    {
+        DB::beginTransaction();
+        try
+        {
+            $article = $this->articleRepository->changeStatusById($id);
+        }
+        catch (\Exception $exception)
+        {
+            DB::rollBack();
+            Log::error('Article Change Status Error');
+            Log::error($exception->getMessage());
+            throw new InvalidArgumentException($exception->getMessage());
+        }
+        DB::commit();
+
+        return $article;
+    }
+
     public static function prepareRequest(array $data): array
     {
         $data['slug'] = Str::slug($data['title']);

@@ -52,7 +52,11 @@ class RouteServiceProvider extends ServiceProvider
 
         Route::bind('article', function ($slug)
         {
-            return Article::with('user', 'ratings')->where('slug', $slug)->Published()->firstOrFail();
+            return Article::with('user', 'ratings')
+                ->where('slug', $slug)
+                ->Published()
+                ->appends('next', 'previous')
+                ->firstOrFail();
         });
     }
 

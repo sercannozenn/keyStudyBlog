@@ -64,14 +64,14 @@
 
                     </div>
                 </div>
-                @if ($article->previous())
-                    <a href="{{ route('front.articleDetail', ['article' => $article->previous()->slug]) }}"> < Previous Article</a>
+                @if ($article->previous)
+                    <a href="{{ route('front.articleDetail', ['article' => $article->previous->slug]) }}"> < Previous Article</a>
                 @endif
-                @if ($article->previous() && $article->next())
+                @if ($article->previous && $article->next)
                 -
                 @endif
-                @if ($article->next())
-                    <a href="{{ route('front.articleDetail', ['article' => $article->next()->slug]) }}">Next Article ></a>
+                @if ($article->next)
+                    <a href="{{ route('front.articleDetail', ['article' => $article->next->slug]) }}">Next Article ></a>
                 @endif
 
             </div>
