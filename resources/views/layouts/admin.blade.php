@@ -41,7 +41,7 @@
             <div class="burg3"></div>
         </a>
         <a href="{{ route('dashboard') }}" class="brand-logo">
-            <img src="assets/_con/images/logo.png" alt="Con">
+            <img src="{{ asset('assets/_con/images/logo.png') }}" alt="">
         </a>
         <ul>
             <li class="user">

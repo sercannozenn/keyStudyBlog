@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="{{ asset('assets/front/css/rate.css') }}">
 @endsection
 @section('content')
-    <div class="container mt-5">
+    <div class="container mt-5" style="min-height: 80vh">
         <div class="row">
             <div class="col-md-12">
                 <div class="card">

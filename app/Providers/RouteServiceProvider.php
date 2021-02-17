@@ -55,7 +55,6 @@ class RouteServiceProvider extends ServiceProvider
             return Article::with('user', 'ratings')
                 ->where('slug', $slug)
                 ->Published()
-                ->appends('next', 'previous')
                 ->firstOrFail();
         });
     }

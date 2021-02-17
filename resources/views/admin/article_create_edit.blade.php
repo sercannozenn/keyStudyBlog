@@ -47,7 +47,7 @@
                             {{ isset($article) && \Carbon\Carbon::parse($article->publish_date) < now() ? 'disabled' : '' }}>
                     </div>
                     <div class="input-field">
-                        <input type="checkbox" id="publish_now"
+                        <input type="checkbox" id="publish_now" name="publish_now"
                             {{ isset($article) && \Carbon\Carbon::parse($article->publish_date) < now() ? 'disabled' : '' }}/>
                         <label for="publish_now">Publish Now</label>
                     </div>
@@ -56,7 +56,7 @@
                     </div>
 
                     <div class="input-field">
-                        <input type="checkbox" id="status" {{ isset($article) && $article->status ? 'checked' : '' }}/>
+                        <input type="checkbox" id="status" name="status" {{ isset($article) && $article->status ? 'checked' : '' }}/>
                         <label for="status">Status</label>
                     </div>
                     <hr>

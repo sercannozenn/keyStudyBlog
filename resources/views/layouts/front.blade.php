@@ -20,13 +20,16 @@
             line-height: 50px;
             vertical-align: center;
         }
+       body :nth-child(2) .container{
+            min-height: 50vh;
+        }
     </style>
     @yield('css')
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand text-primary mr-0 mr-md-5" href="#">Sercan Özen | Key Study</a>
+        <a class="navbar-brand text-primary mr-0 mr-md-5" href="{{ route('index') }}">Sercan Özen | Key Study</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -35,7 +38,7 @@
         <div class="navbar-collapse collapse ml-0 ml-md-5" id="navbarSupportedContent">
             <ul class="navbar-nav ">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{{ route('index') }}">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Link</a>
