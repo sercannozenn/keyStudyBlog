@@ -1,6 +1,6 @@
 ## Blog Key Study Çalışması
 
-- <u><b>Kurulum Adımları</</u>
+- <u><b>Kurulum Adımları</b></u>
 
 <ol start="1">
 <li>Bir veritabanı oluşturun.</li>
