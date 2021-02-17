@@ -1,0 +1,992 @@
+/*
+ Navicat Premium Data Transfer
+
+ Source Server         : Homestead MySQL
+ Source Server Type    : MySQL
+ Source Server Version : 80021
+ Source Host           : 192.168.10.10:3306
+ Source Schema         : keystudyblog
+
+ Target Server Type    : MySQL
+ Target Server Version : 80021
+ File Encoding         : 65001
+
+ Date: 18/02/2021 01:13:53
+*/
+
+SET NAMES utf8mb4;
+SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for article_ratings
+-- ----------------------------
+DROP TABLE IF EXISTS `article_ratings`;
+CREATE TABLE `article_ratings`  (
+  `id` bigint(0) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `article_id` bigint(0) UNSIGNED NOT NULL,
+  `user_id` bigint(0) UNSIGNED NOT NULL,
+  `rate` int(0) NOT NULL,
+  `created_at` timestamp(0) NULL DEFAULT NULL,
+  `updated_at` timestamp(0) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `article_ratings_article_id_foreign`(`article_id`) USING BTREE,
+  INDEX `article_ratings_user_id_foreign`(`user_id`) USING BTREE,
+  CONSTRAINT `article_ratings_ibfk_1` FOREIGN KEY (`article_id`) REFERENCES `articles` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT,
+  CONSTRAINT `article_ratings_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of article_ratings
+-- ----------------------------
+INSERT INTO `article_ratings` VALUES (1, 2, 2, 4, '2021-02-17 20:07:00', '2021-02-17 20:07:00');
+INSERT INTO `article_ratings` VALUES (2, 2, 3, 3, '2021-02-17 20:07:00', '2021-02-17 20:07:00');
+INSERT INTO `article_ratings` VALUES (3, 2, 4, 2, '2021-02-17 20:07:00', '2021-02-17 20:07:00');
+INSERT INTO `article_ratings` VALUES (4, 2, 5, 3, '2021-02-17 20:07:00', '2021-02-17 20:07:00');
+INSERT INTO `article_ratings` VALUES (5, 2, 6, 3, '2021-02-17 20:07:00', '2021-02-17 20:07:00');
+INSERT INTO `article_ratings` VALUES (6, 2, 7, 3, '2021-02-17 20:07:00', '2021-02-17 20:07:00');
+INSERT INTO `article_ratings` VALUES (7, 2, 8, 2, '2021-02-17 20:07:00', '2021-02-17 20:07:00');
+INSERT INTO `article_ratings` VALUES (8, 2, 9, 4, '2021-02-17 20:07:00', '2021-02-17 20:07:00');
+INSERT INTO `article_ratings` VALUES (9, 2, 10, 1, '2021-02-17 20:07:00', '2021-02-17 20:07:00');
+INSERT INTO `article_ratings` VALUES (10, 2, 11, 4, '2021-02-17 20:07:00', '2021-02-17 20:07:00');
+INSERT INTO `article_ratings` VALUES (11, 2, 12, 5, '2021-02-17 20:07:00', '2021-02-17 20:07:00');
+INSERT INTO `article_ratings` VALUES (12, 2, 13, 5, '2021-02-17 20:07:00', '2021-02-17 20:07:00');
+INSERT INTO `article_ratings` VALUES (13, 4, 2, 5, '2021-02-17 20:07:00', '2021-02-17 20:07:00');
+INSERT INTO `article_ratings` VALUES (14, 4, 3, 2, '2021-02-17 20:07:00', '2021-02-17 20:07:00');
+INSERT INTO `article_ratings` VALUES (15, 4, 4, 2, '2021-02-17 20:07:00', '2021-02-17 20:07:00');
+INSERT INTO `article_ratings` VALUES (16, 4, 5, 4, '2021-02-17 20:07:00', '2021-02-17 20:07:00');
+INSERT INTO `article_ratings` VALUES (17, 4, 6, 4, '2021-02-17 20:07:00', '2021-02-17 20:07:00');
+INSERT INTO `article_ratings` VALUES (18, 4, 7, 1, '2021-02-17 20:07:00', '2021-02-17 20:07:00');
+INSERT INTO `article_ratings` VALUES (19, 4, 8, 5, '2021-02-17 20:07:00', '2021-02-17 20:07:00');
+INSERT INTO `article_ratings` VALUES (20, 4, 9, 3, '2021-02-17 20:07:00', '2021-02-17 20:07:00');
+INSERT INTO `article_ratings` VALUES (21, 4, 10, 1, '2021-02-17 20:07:00', '2021-02-17 20:07:00');
+INSERT INTO `article_ratings` VALUES (22, 4, 11, 3, '2021-02-17 20:07:00', '2021-02-17 20:07:00');
+INSERT INTO `article_ratings` VALUES (23, 4, 12, 1, '2021-02-17 20:07:00', '2021-02-17 20:07:00');
+INSERT INTO `article_ratings` VALUES (24, 4, 13, 1, '2021-02-17 20:07:00', '2021-02-17 20:07:00');
+INSERT INTO `article_ratings` VALUES (25, 5, 2, 5, '2021-02-17 20:07:00', '2021-02-17 20:07:00');
+INSERT INTO `article_ratings` VALUES (26, 5, 3, 5, '2021-02-17 20:07:00', '2021-02-17 20:07:00');
+INSERT INTO `article_ratings` VALUES (27, 5, 4, 4, '2021-02-17 20:07:00', '2021-02-17 20:07:00');
+INSERT INTO `article_ratings` VALUES (28, 5, 5, 2, '2021-02-17 20:07:00', '2021-02-17 20:07:00');
+INSERT INTO `article_ratings` VALUES (29, 5, 6, 4, '2021-02-17 20:07:00', '2021-02-17 20:07:00');
+INSERT INTO `article_ratings` VALUES (30, 5, 7, 2, '2021-02-17 20:07:00', '2021-02-17 20:07:00');
+INSERT INTO `article_ratings` VALUES (31, 5, 8, 3, '2021-02-17 20:07:00', '2021-02-17 20:07:00');
+INSERT INTO `article_ratings` VALUES (32, 5, 9, 1, '2021-02-17 20:07:00', '2021-02-17 20:07:00');
+INSERT INTO `article_ratings` VALUES (33, 5, 10, 1, '2021-02-17 20:07:00', '2021-02-17 20:07:00');
+INSERT INTO `article_ratings` VALUES (34, 5, 11, 2, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (35, 5, 12, 2, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (36, 5, 13, 1, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (37, 8, 2, 5, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (38, 8, 3, 4, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (39, 8, 4, 5, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (40, 8, 5, 4, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (41, 8, 6, 3, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (42, 8, 7, 2, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (43, 8, 8, 4, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (44, 8, 9, 3, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (45, 8, 10, 3, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (46, 8, 11, 3, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (47, 8, 12, 2, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (48, 8, 13, 3, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (49, 9, 2, 3, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (50, 9, 3, 4, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (51, 9, 4, 4, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (52, 9, 5, 4, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (53, 9, 6, 2, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (54, 9, 7, 1, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (55, 9, 8, 4, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (56, 9, 9, 4, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (57, 9, 10, 2, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (58, 9, 11, 3, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (59, 9, 12, 4, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (60, 9, 13, 3, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (61, 10, 2, 1, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (62, 10, 3, 1, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (63, 10, 4, 1, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (64, 10, 5, 5, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (65, 10, 6, 3, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (66, 10, 7, 4, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (67, 10, 8, 3, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (68, 10, 9, 2, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (69, 10, 10, 2, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (70, 10, 11, 5, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (71, 10, 12, 1, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (72, 10, 13, 2, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (73, 12, 2, 5, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (74, 12, 3, 1, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (75, 12, 4, 1, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (76, 12, 5, 2, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (77, 12, 6, 3, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (78, 12, 7, 1, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (79, 12, 8, 4, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (80, 12, 9, 3, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (81, 12, 10, 3, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (82, 12, 11, 1, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (83, 12, 12, 3, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (84, 12, 13, 1, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (85, 15, 2, 5, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (86, 15, 3, 4, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (87, 15, 4, 1, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (88, 15, 5, 4, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (89, 15, 6, 4, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (90, 15, 7, 4, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (91, 15, 8, 1, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (92, 15, 9, 1, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (93, 15, 10, 4, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (94, 15, 11, 2, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (95, 15, 12, 4, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (96, 15, 13, 4, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (97, 16, 2, 2, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (98, 16, 3, 2, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (99, 16, 4, 3, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (100, 16, 5, 4, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (101, 16, 6, 1, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (102, 16, 7, 4, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (103, 16, 8, 2, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (104, 16, 9, 2, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (105, 16, 10, 1, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (106, 16, 11, 2, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (107, 16, 12, 4, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (108, 16, 13, 2, '2021-02-17 20:07:01', '2021-02-17 20:07:01');
+INSERT INTO `article_ratings` VALUES (109, 18, 2, 4, '2021-02-17 20:07:02', '2021-02-17 20:07:02');
+INSERT INTO `article_ratings` VALUES (110, 18, 3, 2, '2021-02-17 20:07:02', '2021-02-17 20:07:02');
+INSERT INTO `article_ratings` VALUES (111, 18, 4, 1, '2021-02-17 20:07:02', '2021-02-17 20:07:02');
+INSERT INTO `article_ratings` VALUES (112, 18, 5, 4, '2021-02-17 20:07:02', '2021-02-17 20:07:02');
+INSERT INTO `article_ratings` VALUES (113, 18, 6, 4, '2021-02-17 20:07:02', '2021-02-17 20:07:02');
+INSERT INTO `article_ratings` VALUES (114, 18, 7, 2, '2021-02-17 20:07:02', '2021-02-17 20:07:02');
+INSERT INTO `article_ratings` VALUES (115, 18, 8, 4, '2021-02-17 20:07:02', '2021-02-17 20:07:02');
+INSERT INTO `article_ratings` VALUES (116, 18, 9, 5, '2021-02-17 20:07:02', '2021-02-17 20:07:02');
+INSERT INTO `article_ratings` VALUES (117, 18, 10, 2, '2021-02-17 20:07:02', '2021-02-17 20:07:02');
+INSERT INTO `article_ratings` VALUES (118, 18, 11, 2, '2021-02-17 20:07:02', '2021-02-17 20:07:02');
+INSERT INTO `article_ratings` VALUES (119, 18, 12, 2, '2021-02-17 20:07:02', '2021-02-17 20:07:02');
+INSERT INTO `article_ratings` VALUES (120, 18, 13, 1, '2021-02-17 20:07:02', '2021-02-17 20:07:02');
+INSERT INTO `article_ratings` VALUES (121, 20, 2, 5, '2021-02-17 20:07:02', '2021-02-17 20:07:02');
+INSERT INTO `article_ratings` VALUES (122, 20, 3, 4, '2021-02-17 20:07:02', '2021-02-17 20:07:02');
+INSERT INTO `article_ratings` VALUES (123, 20, 4, 3, '2021-02-17 20:07:02', '2021-02-17 20:07:02');
+INSERT INTO `article_ratings` VALUES (124, 20, 5, 4, '2021-02-17 20:07:02', '2021-02-17 20:07:02');
+INSERT INTO `article_ratings` VALUES (125, 20, 6, 1, '2021-02-17 20:07:02', '2021-02-17 20:07:02');
+INSERT INTO `article_ratings` VALUES (126, 20, 7, 3, '2021-02-17 20:07:02', '2021-02-17 20:07:02');
+INSERT INTO `article_ratings` VALUES (127, 20, 8, 5, '2021-02-17 20:07:02', '2021-02-17 20:07:02');
+INSERT INTO `article_ratings` VALUES (128, 20, 9, 5, '2021-02-17 20:07:02', '2021-02-17 20:07:02');
+INSERT INTO `article_ratings` VALUES (129, 20, 10, 1, '2021-02-17 20:07:02', '2021-02-17 20:07:02');
+INSERT INTO `article_ratings` VALUES (130, 20, 11, 5, '2021-02-17 20:07:02', '2021-02-17 20:07:02');
+INSERT INTO `article_ratings` VALUES (131, 20, 12, 5, '2021-02-17 20:07:02', '2021-02-17 20:07:02');
+INSERT INTO `article_ratings` VALUES (132, 20, 13, 2, '2021-02-17 20:07:02', '2021-02-17 20:07:02');
+INSERT INTO `article_ratings` VALUES (133, 23, 2, 1, '2021-02-17 20:07:02', '2021-02-17 20:07:02');
+INSERT INTO `article_ratings` VALUES (134, 23, 3, 2, '2021-02-17 20:07:02', '2021-02-17 20:07:02');
+INSERT INTO `article_ratings` VALUES (135, 23, 4, 1, '2021-02-17 20:07:02', '2021-02-17 20:07:02');
+INSERT INTO `article_ratings` VALUES (136, 23, 5, 3, '2021-02-17 20:07:02', '2021-02-17 20:07:02');
+INSERT INTO `article_ratings` VALUES (137, 23, 6, 3, '2021-02-17 20:07:02', '2021-02-17 20:07:02');
+INSERT INTO `article_ratings` VALUES (138, 23, 7, 3, '2021-02-17 20:07:02', '2021-02-17 20:07:02');
+INSERT INTO `article_ratings` VALUES (139, 23, 8, 2, '2021-02-17 20:07:02', '2021-02-17 20:07:02');
+INSERT INTO `article_ratings` VALUES (140, 23, 9, 5, '2021-02-17 20:07:02', '2021-02-17 20:07:02');
+INSERT INTO `article_ratings` VALUES (141, 23, 10, 5, '2021-02-17 20:07:02', '2021-02-17 20:07:02');
+INSERT INTO `article_ratings` VALUES (142, 23, 11, 1, '2021-02-17 20:07:02', '2021-02-17 20:07:02');
+INSERT INTO `article_ratings` VALUES (143, 23, 12, 2, '2021-02-17 20:07:02', '2021-02-17 20:07:02');
+INSERT INTO `article_ratings` VALUES (144, 23, 13, 5, '2021-02-17 20:07:02', '2021-02-17 20:07:02');
+INSERT INTO `article_ratings` VALUES (145, 24, 2, 4, '2021-02-17 20:07:02', '2021-02-17 20:07:02');
+INSERT INTO `article_ratings` VALUES (146, 24, 3, 4, '2021-02-17 20:07:02', '2021-02-17 20:07:02');
+INSERT INTO `article_ratings` VALUES (147, 24, 4, 3, '2021-02-17 20:07:02', '2021-02-17 20:07:02');
+INSERT INTO `article_ratings` VALUES (148, 24, 5, 5, '2021-02-17 20:07:02', '2021-02-17 20:07:02');
+INSERT INTO `article_ratings` VALUES (149, 24, 6, 4, '2021-02-17 20:07:03', '2021-02-17 20:07:03');
+INSERT INTO `article_ratings` VALUES (150, 24, 7, 2, '2021-02-17 20:07:03', '2021-02-17 20:07:03');
+INSERT INTO `article_ratings` VALUES (151, 24, 8, 1, '2021-02-17 20:07:03', '2021-02-17 20:07:03');
+INSERT INTO `article_ratings` VALUES (152, 24, 9, 5, '2021-02-17 20:07:03', '2021-02-17 20:07:03');
+INSERT INTO `article_ratings` VALUES (153, 24, 10, 3, '2021-02-17 20:07:03', '2021-02-17 20:07:03');
+INSERT INTO `article_ratings` VALUES (154, 24, 11, 5, '2021-02-17 20:07:03', '2021-02-17 20:07:03');
+INSERT INTO `article_ratings` VALUES (155, 24, 12, 3, '2021-02-17 20:07:03', '2021-02-17 20:07:03');
+INSERT INTO `article_ratings` VALUES (156, 24, 13, 2, '2021-02-17 20:07:03', '2021-02-17 20:07:03');
+INSERT INTO `article_ratings` VALUES (157, 25, 2, 4, '2021-02-17 20:07:03', '2021-02-17 20:07:03');
+INSERT INTO `article_ratings` VALUES (158, 25, 3, 4, '2021-02-17 20:07:03', '2021-02-17 20:07:03');
+INSERT INTO `article_ratings` VALUES (159, 25, 4, 3, '2021-02-17 20:07:03', '2021-02-17 20:07:03');
+INSERT INTO `article_ratings` VALUES (160, 25, 5, 4, '2021-02-17 20:07:03', '2021-02-17 20:07:03');
+INSERT INTO `article_ratings` VALUES (161, 25, 6, 3, '2021-02-17 20:07:03', '2021-02-17 20:07:03');
+INSERT INTO `article_ratings` VALUES (162, 25, 7, 3, '2021-02-17 20:07:03', '2021-02-17 20:07:03');
+INSERT INTO `article_ratings` VALUES (163, 25, 8, 1, '2021-02-17 20:07:03', '2021-02-17 20:07:03');
+INSERT INTO `article_ratings` VALUES (164, 25, 9, 5, '2021-02-17 20:07:03', '2021-02-17 20:07:03');
+INSERT INTO `article_ratings` VALUES (165, 25, 10, 3, '2021-02-17 20:07:03', '2021-02-17 20:07:03');
+INSERT INTO `article_ratings` VALUES (166, 25, 11, 4, '2021-02-17 20:07:03', '2021-02-17 20:07:03');
+INSERT INTO `article_ratings` VALUES (167, 25, 12, 2, '2021-02-17 20:07:03', '2021-02-17 20:07:03');
+INSERT INTO `article_ratings` VALUES (168, 25, 13, 5, '2021-02-17 20:07:03', '2021-02-17 20:07:03');
+INSERT INTO `article_ratings` VALUES (169, 26, 2, 2, '2021-02-17 20:07:03', '2021-02-17 20:07:03');
+INSERT INTO `article_ratings` VALUES (170, 26, 3, 3, '2021-02-17 20:07:03', '2021-02-17 20:07:03');
+INSERT INTO `article_ratings` VALUES (171, 26, 4, 4, '2021-02-17 20:07:03', '2021-02-17 20:07:03');
+INSERT INTO `article_ratings` VALUES (172, 26, 5, 1, '2021-02-17 20:07:03', '2021-02-17 20:07:03');
+INSERT INTO `article_ratings` VALUES (173, 26, 6, 2, '2021-02-17 20:07:03', '2021-02-17 20:07:03');
+INSERT INTO `article_ratings` VALUES (174, 26, 7, 3, '2021-02-17 20:07:03', '2021-02-17 20:07:03');
+INSERT INTO `article_ratings` VALUES (175, 26, 8, 3, '2021-02-17 20:07:03', '2021-02-17 20:07:03');
+INSERT INTO `article_ratings` VALUES (176, 26, 9, 1, '2021-02-17 20:07:03', '2021-02-17 20:07:03');
+INSERT INTO `article_ratings` VALUES (177, 26, 10, 1, '2021-02-17 20:07:03', '2021-02-17 20:07:03');
+INSERT INTO `article_ratings` VALUES (178, 26, 11, 4, '2021-02-17 20:07:03', '2021-02-17 20:07:03');
+INSERT INTO `article_ratings` VALUES (179, 26, 12, 2, '2021-02-17 20:07:03', '2021-02-17 20:07:03');
+INSERT INTO `article_ratings` VALUES (180, 26, 13, 2, '2021-02-17 20:07:03', '2021-02-17 20:07:03');
+INSERT INTO `article_ratings` VALUES (181, 27, 2, 4, '2021-02-17 20:07:03', '2021-02-17 20:07:03');
+INSERT INTO `article_ratings` VALUES (182, 27, 3, 1, '2021-02-17 20:07:03', '2021-02-17 20:07:03');
+INSERT INTO `article_ratings` VALUES (183, 27, 4, 5, '2021-02-17 20:07:03', '2021-02-17 20:07:03');
+INSERT INTO `article_ratings` VALUES (184, 27, 5, 1, '2021-02-17 20:07:03', '2021-02-17 20:07:03');
+INSERT INTO `article_ratings` VALUES (185, 27, 6, 4, '2021-02-17 20:07:04', '2021-02-17 20:07:04');
+INSERT INTO `article_ratings` VALUES (186, 27, 7, 5, '2021-02-17 20:07:04', '2021-02-17 20:07:04');
+INSERT INTO `article_ratings` VALUES (187, 27, 8, 3, '2021-02-17 20:07:04', '2021-02-17 20:07:04');
+INSERT INTO `article_ratings` VALUES (188, 27, 9, 4, '2021-02-17 20:07:04', '2021-02-17 20:07:04');
+INSERT INTO `article_ratings` VALUES (189, 27, 10, 3, '2021-02-17 20:07:04', '2021-02-17 20:07:04');
+INSERT INTO `article_ratings` VALUES (190, 27, 11, 1, '2021-02-17 20:07:04', '2021-02-17 20:07:04');
+INSERT INTO `article_ratings` VALUES (191, 27, 12, 2, '2021-02-17 20:07:04', '2021-02-17 20:07:04');
+INSERT INTO `article_ratings` VALUES (192, 27, 13, 4, '2021-02-17 20:07:04', '2021-02-17 20:07:04');
+INSERT INTO `article_ratings` VALUES (193, 30, 2, 5, '2021-02-17 20:07:04', '2021-02-17 20:07:04');
+INSERT INTO `article_ratings` VALUES (194, 30, 3, 1, '2021-02-17 20:07:04', '2021-02-17 20:07:04');
+INSERT INTO `article_ratings` VALUES (195, 30, 4, 1, '2021-02-17 20:07:04', '2021-02-17 20:07:04');
+INSERT INTO `article_ratings` VALUES (196, 30, 5, 2, '2021-02-17 20:07:04', '2021-02-17 20:07:04');
+INSERT INTO `article_ratings` VALUES (197, 30, 6, 4, '2021-02-17 20:07:04', '2021-02-17 20:07:04');
+INSERT INTO `article_ratings` VALUES (198, 30, 7, 3, '2021-02-17 20:07:04', '2021-02-17 20:07:04');
+INSERT INTO `article_ratings` VALUES (199, 30, 8, 2, '2021-02-17 20:07:04', '2021-02-17 20:07:04');
+INSERT INTO `article_ratings` VALUES (200, 30, 9, 4, '2021-02-17 20:07:04', '2021-02-17 20:07:04');
+INSERT INTO `article_ratings` VALUES (201, 30, 10, 4, '2021-02-17 20:07:04', '2021-02-17 20:07:04');
+INSERT INTO `article_ratings` VALUES (202, 30, 11, 3, '2021-02-17 20:07:04', '2021-02-17 20:07:04');
+INSERT INTO `article_ratings` VALUES (203, 30, 12, 3, '2021-02-17 20:07:04', '2021-02-17 20:07:04');
+INSERT INTO `article_ratings` VALUES (204, 30, 13, 4, '2021-02-17 20:07:04', '2021-02-17 20:07:04');
+INSERT INTO `article_ratings` VALUES (205, 32, 2, 1, '2021-02-17 20:07:04', '2021-02-17 20:07:04');
+INSERT INTO `article_ratings` VALUES (206, 32, 3, 2, '2021-02-17 20:07:04', '2021-02-17 20:07:04');
+INSERT INTO `article_ratings` VALUES (207, 32, 4, 4, '2021-02-17 20:07:04', '2021-02-17 20:07:04');
+INSERT INTO `article_ratings` VALUES (208, 32, 5, 4, '2021-02-17 20:07:04', '2021-02-17 20:07:04');
+INSERT INTO `article_ratings` VALUES (209, 32, 6, 1, '2021-02-17 20:07:04', '2021-02-17 20:07:04');
+INSERT INTO `article_ratings` VALUES (210, 32, 7, 1, '2021-02-17 20:07:04', '2021-02-17 20:07:04');
+INSERT INTO `article_ratings` VALUES (211, 32, 8, 5, '2021-02-17 20:07:04', '2021-02-17 20:07:04');
+INSERT INTO `article_ratings` VALUES (212, 32, 9, 5, '2021-02-17 20:07:04', '2021-02-17 20:07:04');
+INSERT INTO `article_ratings` VALUES (213, 32, 10, 5, '2021-02-17 20:07:04', '2021-02-17 20:07:04');
+INSERT INTO `article_ratings` VALUES (214, 32, 11, 2, '2021-02-17 20:07:04', '2021-02-17 20:07:04');
+INSERT INTO `article_ratings` VALUES (215, 32, 12, 3, '2021-02-17 20:07:04', '2021-02-17 20:07:04');
+INSERT INTO `article_ratings` VALUES (216, 32, 13, 4, '2021-02-17 20:07:04', '2021-02-17 20:07:04');
+INSERT INTO `article_ratings` VALUES (217, 33, 2, 4, '2021-02-17 20:07:04', '2021-02-17 20:07:04');
+INSERT INTO `article_ratings` VALUES (218, 33, 3, 1, '2021-02-17 20:07:04', '2021-02-17 20:07:04');
+INSERT INTO `article_ratings` VALUES (219, 33, 4, 3, '2021-02-17 20:07:04', '2021-02-17 20:07:04');
+INSERT INTO `article_ratings` VALUES (220, 33, 5, 2, '2021-02-17 20:07:04', '2021-02-17 20:07:04');
+INSERT INTO `article_ratings` VALUES (221, 33, 6, 1, '2021-02-17 20:07:04', '2021-02-17 20:07:04');
+INSERT INTO `article_ratings` VALUES (222, 33, 7, 3, '2021-02-17 20:07:04', '2021-02-17 20:07:04');
+INSERT INTO `article_ratings` VALUES (223, 33, 8, 1, '2021-02-17 20:07:04', '2021-02-17 20:07:04');
+INSERT INTO `article_ratings` VALUES (224, 33, 9, 2, '2021-02-17 20:07:04', '2021-02-17 20:07:04');
+INSERT INTO `article_ratings` VALUES (225, 33, 10, 2, '2021-02-17 20:07:04', '2021-02-17 20:07:04');
+INSERT INTO `article_ratings` VALUES (226, 33, 11, 5, '2021-02-17 20:07:04', '2021-02-17 20:07:04');
+INSERT INTO `article_ratings` VALUES (227, 33, 12, 5, '2021-02-17 20:07:04', '2021-02-17 20:07:04');
+INSERT INTO `article_ratings` VALUES (228, 33, 13, 5, '2021-02-17 20:07:04', '2021-02-17 20:07:04');
+INSERT INTO `article_ratings` VALUES (229, 35, 2, 3, '2021-02-17 20:07:04', '2021-02-17 20:07:04');
+INSERT INTO `article_ratings` VALUES (230, 35, 3, 4, '2021-02-17 20:07:04', '2021-02-17 20:07:04');
+INSERT INTO `article_ratings` VALUES (231, 35, 4, 5, '2021-02-17 20:07:04', '2021-02-17 20:07:04');
+INSERT INTO `article_ratings` VALUES (232, 35, 5, 1, '2021-02-17 20:07:05', '2021-02-17 20:07:05');
+INSERT INTO `article_ratings` VALUES (233, 35, 6, 3, '2021-02-17 20:07:05', '2021-02-17 20:07:05');
+INSERT INTO `article_ratings` VALUES (234, 35, 7, 2, '2021-02-17 20:07:05', '2021-02-17 20:07:05');
+INSERT INTO `article_ratings` VALUES (235, 35, 8, 1, '2021-02-17 20:07:05', '2021-02-17 20:07:05');
+INSERT INTO `article_ratings` VALUES (236, 35, 9, 3, '2021-02-17 20:07:05', '2021-02-17 20:07:05');
+INSERT INTO `article_ratings` VALUES (237, 35, 10, 3, '2021-02-17 20:07:05', '2021-02-17 20:07:05');
+INSERT INTO `article_ratings` VALUES (238, 35, 11, 5, '2021-02-17 20:07:05', '2021-02-17 20:07:05');
+INSERT INTO `article_ratings` VALUES (239, 35, 12, 2, '2021-02-17 20:07:05', '2021-02-17 20:07:05');
+INSERT INTO `article_ratings` VALUES (240, 35, 13, 1, '2021-02-17 20:07:05', '2021-02-17 20:07:05');
+INSERT INTO `article_ratings` VALUES (241, 38, 2, 4, '2021-02-17 20:07:05', '2021-02-17 20:07:05');
+INSERT INTO `article_ratings` VALUES (242, 38, 3, 3, '2021-02-17 20:07:05', '2021-02-17 20:07:05');
+INSERT INTO `article_ratings` VALUES (243, 38, 4, 4, '2021-02-17 20:07:05', '2021-02-17 20:07:05');
+INSERT INTO `article_ratings` VALUES (244, 38, 5, 3, '2021-02-17 20:07:05', '2021-02-17 20:07:05');
+INSERT INTO `article_ratings` VALUES (245, 38, 6, 4, '2021-02-17 20:07:05', '2021-02-17 20:07:05');
+INSERT INTO `article_ratings` VALUES (246, 38, 7, 3, '2021-02-17 20:07:05', '2021-02-17 20:07:05');
+INSERT INTO `article_ratings` VALUES (247, 38, 8, 4, '2021-02-17 20:07:05', '2021-02-17 20:07:05');
+INSERT INTO `article_ratings` VALUES (248, 38, 9, 4, '2021-02-17 20:07:05', '2021-02-17 20:07:05');
+INSERT INTO `article_ratings` VALUES (249, 38, 10, 2, '2021-02-17 20:07:05', '2021-02-17 20:07:05');
+INSERT INTO `article_ratings` VALUES (250, 38, 11, 5, '2021-02-17 20:07:05', '2021-02-17 20:07:05');
+INSERT INTO `article_ratings` VALUES (251, 38, 12, 1, '2021-02-17 20:07:05', '2021-02-17 20:07:05');
+INSERT INTO `article_ratings` VALUES (252, 38, 13, 1, '2021-02-17 20:07:05', '2021-02-17 20:07:05');
+INSERT INTO `article_ratings` VALUES (253, 44, 2, 5, '2021-02-17 20:07:05', '2021-02-17 20:07:05');
+INSERT INTO `article_ratings` VALUES (254, 44, 3, 2, '2021-02-17 20:07:06', '2021-02-17 20:07:06');
+INSERT INTO `article_ratings` VALUES (255, 44, 4, 4, '2021-02-17 20:07:06', '2021-02-17 20:07:06');
+INSERT INTO `article_ratings` VALUES (256, 44, 5, 2, '2021-02-17 20:07:06', '2021-02-17 20:07:06');
+INSERT INTO `article_ratings` VALUES (257, 44, 6, 5, '2021-02-17 20:07:06', '2021-02-17 20:07:06');
+INSERT INTO `article_ratings` VALUES (258, 44, 7, 3, '2021-02-17 20:07:06', '2021-02-17 20:07:06');
+INSERT INTO `article_ratings` VALUES (259, 44, 8, 5, '2021-02-17 20:07:06', '2021-02-17 20:07:06');
+INSERT INTO `article_ratings` VALUES (260, 44, 9, 3, '2021-02-17 20:07:06', '2021-02-17 20:07:06');
+INSERT INTO `article_ratings` VALUES (261, 44, 10, 4, '2021-02-17 20:07:06', '2021-02-17 20:07:06');
+INSERT INTO `article_ratings` VALUES (262, 44, 11, 5, '2021-02-17 20:07:06', '2021-02-17 20:07:06');
+INSERT INTO `article_ratings` VALUES (263, 44, 12, 1, '2021-02-17 20:07:06', '2021-02-17 20:07:06');
+INSERT INTO `article_ratings` VALUES (264, 44, 13, 1, '2021-02-17 20:07:06', '2021-02-17 20:07:06');
+INSERT INTO `article_ratings` VALUES (265, 45, 2, 2, '2021-02-17 20:07:06', '2021-02-17 20:07:06');
+INSERT INTO `article_ratings` VALUES (266, 45, 3, 3, '2021-02-17 20:07:06', '2021-02-17 20:07:06');
+INSERT INTO `article_ratings` VALUES (267, 45, 4, 3, '2021-02-17 20:07:06', '2021-02-17 20:07:06');
+INSERT INTO `article_ratings` VALUES (268, 45, 5, 3, '2021-02-17 20:07:06', '2021-02-17 20:07:06');
+INSERT INTO `article_ratings` VALUES (269, 45, 6, 4, '2021-02-17 20:07:06', '2021-02-17 20:07:06');
+INSERT INTO `article_ratings` VALUES (270, 45, 7, 1, '2021-02-17 20:07:07', '2021-02-17 20:07:07');
+INSERT INTO `article_ratings` VALUES (271, 45, 8, 4, '2021-02-17 20:07:07', '2021-02-17 20:07:07');
+INSERT INTO `article_ratings` VALUES (272, 45, 9, 4, '2021-02-17 20:07:07', '2021-02-17 20:07:07');
+INSERT INTO `article_ratings` VALUES (273, 45, 10, 1, '2021-02-17 20:07:07', '2021-02-17 20:07:07');
+INSERT INTO `article_ratings` VALUES (274, 45, 11, 1, '2021-02-17 20:07:07', '2021-02-17 20:07:07');
+INSERT INTO `article_ratings` VALUES (275, 45, 12, 2, '2021-02-17 20:07:07', '2021-02-17 20:07:07');
+INSERT INTO `article_ratings` VALUES (276, 45, 13, 2, '2021-02-17 20:07:07', '2021-02-17 20:07:07');
+INSERT INTO `article_ratings` VALUES (277, 46, 2, 4, '2021-02-17 20:07:07', '2021-02-17 20:07:07');
+INSERT INTO `article_ratings` VALUES (278, 46, 3, 2, '2021-02-17 20:07:07', '2021-02-17 20:07:07');
+INSERT INTO `article_ratings` VALUES (279, 46, 4, 1, '2021-02-17 20:07:07', '2021-02-17 20:07:07');
+INSERT INTO `article_ratings` VALUES (280, 46, 5, 3, '2021-02-17 20:07:07', '2021-02-17 20:07:07');
+INSERT INTO `article_ratings` VALUES (281, 46, 6, 2, '2021-02-17 20:07:07', '2021-02-17 20:07:07');
+INSERT INTO `article_ratings` VALUES (282, 46, 7, 2, '2021-02-17 20:07:07', '2021-02-17 20:07:07');
+INSERT INTO `article_ratings` VALUES (283, 46, 8, 5, '2021-02-17 20:07:07', '2021-02-17 20:07:07');
+INSERT INTO `article_ratings` VALUES (284, 46, 9, 3, '2021-02-17 20:07:07', '2021-02-17 20:07:07');
+INSERT INTO `article_ratings` VALUES (285, 46, 10, 5, '2021-02-17 20:07:07', '2021-02-17 20:07:07');
+INSERT INTO `article_ratings` VALUES (286, 46, 11, 4, '2021-02-17 20:07:07', '2021-02-17 20:07:07');
+INSERT INTO `article_ratings` VALUES (287, 46, 12, 2, '2021-02-17 20:07:07', '2021-02-17 20:07:07');
+INSERT INTO `article_ratings` VALUES (288, 46, 13, 2, '2021-02-17 20:07:07', '2021-02-17 20:07:07');
+INSERT INTO `article_ratings` VALUES (289, 53, 2, 2, '2021-02-17 20:07:07', '2021-02-17 20:07:07');
+INSERT INTO `article_ratings` VALUES (290, 53, 3, 1, '2021-02-17 20:07:07', '2021-02-17 20:07:07');
+INSERT INTO `article_ratings` VALUES (291, 53, 4, 3, '2021-02-17 20:07:07', '2021-02-17 20:07:07');
+INSERT INTO `article_ratings` VALUES (292, 53, 5, 1, '2021-02-17 20:07:07', '2021-02-17 20:07:07');
+INSERT INTO `article_ratings` VALUES (293, 53, 6, 1, '2021-02-17 20:07:07', '2021-02-17 20:07:07');
+INSERT INTO `article_ratings` VALUES (294, 53, 7, 5, '2021-02-17 20:07:07', '2021-02-17 20:07:07');
+INSERT INTO `article_ratings` VALUES (295, 53, 8, 1, '2021-02-17 20:07:07', '2021-02-17 20:07:07');
+INSERT INTO `article_ratings` VALUES (296, 53, 9, 1, '2021-02-17 20:07:07', '2021-02-17 20:07:07');
+INSERT INTO `article_ratings` VALUES (297, 53, 10, 2, '2021-02-17 20:07:07', '2021-02-17 20:07:07');
+INSERT INTO `article_ratings` VALUES (298, 53, 11, 1, '2021-02-17 20:07:08', '2021-02-17 20:07:08');
+INSERT INTO `article_ratings` VALUES (299, 53, 12, 3, '2021-02-17 20:07:08', '2021-02-17 20:07:08');
+INSERT INTO `article_ratings` VALUES (300, 53, 13, 5, '2021-02-17 20:07:08', '2021-02-17 20:07:08');
+INSERT INTO `article_ratings` VALUES (301, 54, 2, 2, '2021-02-17 20:07:08', '2021-02-17 20:07:08');
+INSERT INTO `article_ratings` VALUES (302, 54, 3, 1, '2021-02-17 20:07:08', '2021-02-17 20:07:08');
+INSERT INTO `article_ratings` VALUES (303, 54, 4, 2, '2021-02-17 20:07:08', '2021-02-17 20:07:08');
+INSERT INTO `article_ratings` VALUES (304, 54, 5, 3, '2021-02-17 20:07:08', '2021-02-17 20:07:08');
+INSERT INTO `article_ratings` VALUES (305, 54, 6, 2, '2021-02-17 20:07:08', '2021-02-17 20:07:08');
+INSERT INTO `article_ratings` VALUES (306, 54, 7, 5, '2021-02-17 20:07:08', '2021-02-17 20:07:08');
+INSERT INTO `article_ratings` VALUES (307, 54, 8, 5, '2021-02-17 20:07:08', '2021-02-17 20:07:08');
+INSERT INTO `article_ratings` VALUES (308, 54, 9, 1, '2021-02-17 20:07:08', '2021-02-17 20:07:08');
+INSERT INTO `article_ratings` VALUES (309, 54, 10, 4, '2021-02-17 20:07:08', '2021-02-17 20:07:08');
+INSERT INTO `article_ratings` VALUES (310, 54, 11, 2, '2021-02-17 20:07:08', '2021-02-17 20:07:08');
+INSERT INTO `article_ratings` VALUES (311, 54, 12, 2, '2021-02-17 20:07:08', '2021-02-17 20:07:08');
+INSERT INTO `article_ratings` VALUES (312, 54, 13, 5, '2021-02-17 20:07:08', '2021-02-17 20:07:08');
+INSERT INTO `article_ratings` VALUES (313, 55, 2, 5, '2021-02-17 20:07:08', '2021-02-17 20:07:08');
+INSERT INTO `article_ratings` VALUES (314, 55, 3, 2, '2021-02-17 20:07:08', '2021-02-17 20:07:08');
+INSERT INTO `article_ratings` VALUES (315, 55, 4, 2, '2021-02-17 20:07:08', '2021-02-17 20:07:08');
+INSERT INTO `article_ratings` VALUES (316, 55, 5, 2, '2021-02-17 20:07:08', '2021-02-17 20:07:08');
+INSERT INTO `article_ratings` VALUES (317, 55, 6, 1, '2021-02-17 20:07:08', '2021-02-17 20:07:08');
+INSERT INTO `article_ratings` VALUES (318, 55, 7, 2, '2021-02-17 20:07:08', '2021-02-17 20:07:08');
+INSERT INTO `article_ratings` VALUES (319, 55, 8, 3, '2021-02-17 20:07:08', '2021-02-17 20:07:08');
+INSERT INTO `article_ratings` VALUES (320, 55, 9, 2, '2021-02-17 20:07:08', '2021-02-17 20:07:08');
+INSERT INTO `article_ratings` VALUES (321, 55, 10, 2, '2021-02-17 20:07:08', '2021-02-17 20:07:08');
+INSERT INTO `article_ratings` VALUES (322, 55, 11, 5, '2021-02-17 20:07:08', '2021-02-17 20:07:08');
+INSERT INTO `article_ratings` VALUES (323, 55, 12, 2, '2021-02-17 20:07:08', '2021-02-17 20:07:08');
+INSERT INTO `article_ratings` VALUES (324, 55, 13, 5, '2021-02-17 20:07:08', '2021-02-17 20:07:08');
+INSERT INTO `article_ratings` VALUES (325, 57, 2, 4, '2021-02-17 20:07:08', '2021-02-17 20:07:08');
+INSERT INTO `article_ratings` VALUES (326, 57, 3, 2, '2021-02-17 20:07:08', '2021-02-17 20:07:08');
+INSERT INTO `article_ratings` VALUES (327, 57, 4, 5, '2021-02-17 20:07:08', '2021-02-17 20:07:08');
+INSERT INTO `article_ratings` VALUES (328, 57, 5, 4, '2021-02-17 20:07:08', '2021-02-17 20:07:08');
+INSERT INTO `article_ratings` VALUES (329, 57, 6, 2, '2021-02-17 20:07:08', '2021-02-17 20:07:08');
+INSERT INTO `article_ratings` VALUES (330, 57, 7, 2, '2021-02-17 20:07:08', '2021-02-17 20:07:08');
+INSERT INTO `article_ratings` VALUES (331, 57, 8, 5, '2021-02-17 20:07:08', '2021-02-17 20:07:08');
+INSERT INTO `article_ratings` VALUES (332, 57, 9, 5, '2021-02-17 20:07:08', '2021-02-17 20:07:08');
+INSERT INTO `article_ratings` VALUES (333, 57, 10, 1, '2021-02-17 20:07:09', '2021-02-17 20:07:09');
+INSERT INTO `article_ratings` VALUES (334, 57, 11, 3, '2021-02-17 20:07:09', '2021-02-17 20:07:09');
+INSERT INTO `article_ratings` VALUES (335, 57, 12, 4, '2021-02-17 20:07:09', '2021-02-17 20:07:09');
+INSERT INTO `article_ratings` VALUES (336, 57, 13, 5, '2021-02-17 20:07:09', '2021-02-17 20:07:09');
+INSERT INTO `article_ratings` VALUES (337, 58, 2, 3, '2021-02-17 20:07:09', '2021-02-17 20:07:09');
+INSERT INTO `article_ratings` VALUES (338, 58, 3, 5, '2021-02-17 20:07:09', '2021-02-17 20:07:09');
+INSERT INTO `article_ratings` VALUES (339, 58, 4, 4, '2021-02-17 20:07:09', '2021-02-17 20:07:09');
+INSERT INTO `article_ratings` VALUES (340, 58, 5, 2, '2021-02-17 20:07:09', '2021-02-17 20:07:09');
+INSERT INTO `article_ratings` VALUES (341, 58, 6, 1, '2021-02-17 20:07:09', '2021-02-17 20:07:09');
+INSERT INTO `article_ratings` VALUES (342, 58, 7, 4, '2021-02-17 20:07:09', '2021-02-17 20:07:09');
+INSERT INTO `article_ratings` VALUES (343, 58, 8, 5, '2021-02-17 20:07:09', '2021-02-17 20:07:09');
+INSERT INTO `article_ratings` VALUES (344, 58, 9, 2, '2021-02-17 20:07:09', '2021-02-17 20:07:09');
+INSERT INTO `article_ratings` VALUES (345, 58, 10, 3, '2021-02-17 20:07:09', '2021-02-17 20:07:09');
+INSERT INTO `article_ratings` VALUES (346, 58, 11, 5, '2021-02-17 20:07:09', '2021-02-17 20:07:09');
+INSERT INTO `article_ratings` VALUES (347, 58, 12, 4, '2021-02-17 20:07:09', '2021-02-17 20:07:09');
+INSERT INTO `article_ratings` VALUES (348, 58, 13, 5, '2021-02-17 20:07:09', '2021-02-17 20:07:09');
+INSERT INTO `article_ratings` VALUES (349, 62, 2, 2, '2021-02-17 20:07:09', '2021-02-17 20:07:09');
+INSERT INTO `article_ratings` VALUES (350, 62, 3, 5, '2021-02-17 20:07:09', '2021-02-17 20:07:09');
+INSERT INTO `article_ratings` VALUES (351, 62, 4, 3, '2021-02-17 20:07:09', '2021-02-17 20:07:09');
+INSERT INTO `article_ratings` VALUES (352, 62, 5, 1, '2021-02-17 20:07:09', '2021-02-17 20:07:09');
+INSERT INTO `article_ratings` VALUES (353, 62, 6, 1, '2021-02-17 20:07:09', '2021-02-17 20:07:09');
+INSERT INTO `article_ratings` VALUES (354, 62, 7, 1, '2021-02-17 20:07:09', '2021-02-17 20:07:09');
+INSERT INTO `article_ratings` VALUES (355, 62, 8, 1, '2021-02-17 20:07:09', '2021-02-17 20:07:09');
+INSERT INTO `article_ratings` VALUES (356, 62, 9, 3, '2021-02-17 20:07:09', '2021-02-17 20:07:09');
+INSERT INTO `article_ratings` VALUES (357, 62, 10, 3, '2021-02-17 20:07:09', '2021-02-17 20:07:09');
+INSERT INTO `article_ratings` VALUES (358, 62, 11, 5, '2021-02-17 20:07:09', '2021-02-17 20:07:09');
+INSERT INTO `article_ratings` VALUES (359, 62, 12, 4, '2021-02-17 20:07:09', '2021-02-17 20:07:09');
+INSERT INTO `article_ratings` VALUES (360, 62, 13, 4, '2021-02-17 20:07:09', '2021-02-17 20:07:09');
+INSERT INTO `article_ratings` VALUES (361, 63, 2, 5, '2021-02-17 20:07:09', '2021-02-17 20:07:09');
+INSERT INTO `article_ratings` VALUES (362, 63, 3, 4, '2021-02-17 20:07:09', '2021-02-17 20:07:09');
+INSERT INTO `article_ratings` VALUES (363, 63, 4, 5, '2021-02-17 20:07:09', '2021-02-17 20:07:09');
+INSERT INTO `article_ratings` VALUES (364, 63, 5, 2, '2021-02-17 20:07:09', '2021-02-17 20:07:09');
+INSERT INTO `article_ratings` VALUES (365, 63, 6, 3, '2021-02-17 20:07:09', '2021-02-17 20:07:09');
+INSERT INTO `article_ratings` VALUES (366, 63, 7, 3, '2021-02-17 20:07:09', '2021-02-17 20:07:09');
+INSERT INTO `article_ratings` VALUES (367, 63, 8, 3, '2021-02-17 20:07:09', '2021-02-17 20:07:09');
+INSERT INTO `article_ratings` VALUES (368, 63, 9, 2, '2021-02-17 20:07:10', '2021-02-17 20:07:10');
+INSERT INTO `article_ratings` VALUES (369, 63, 10, 2, '2021-02-17 20:07:10', '2021-02-17 20:07:10');
+INSERT INTO `article_ratings` VALUES (370, 63, 11, 2, '2021-02-17 20:07:10', '2021-02-17 20:07:10');
+INSERT INTO `article_ratings` VALUES (371, 63, 12, 2, '2021-02-17 20:07:10', '2021-02-17 20:07:10');
+INSERT INTO `article_ratings` VALUES (372, 63, 13, 3, '2021-02-17 20:07:10', '2021-02-17 20:07:10');
+INSERT INTO `article_ratings` VALUES (373, 65, 2, 5, '2021-02-17 20:07:10', '2021-02-17 20:07:10');
+INSERT INTO `article_ratings` VALUES (374, 65, 3, 4, '2021-02-17 20:07:10', '2021-02-17 20:07:10');
+INSERT INTO `article_ratings` VALUES (375, 65, 4, 1, '2021-02-17 20:07:10', '2021-02-17 20:07:10');
+INSERT INTO `article_ratings` VALUES (376, 65, 5, 1, '2021-02-17 20:07:10', '2021-02-17 20:07:10');
+INSERT INTO `article_ratings` VALUES (377, 65, 6, 3, '2021-02-17 20:07:10', '2021-02-17 20:07:10');
+INSERT INTO `article_ratings` VALUES (378, 65, 7, 5, '2021-02-17 20:07:10', '2021-02-17 20:07:10');
+INSERT INTO `article_ratings` VALUES (379, 65, 8, 3, '2021-02-17 20:07:10', '2021-02-17 20:07:10');
+INSERT INTO `article_ratings` VALUES (380, 65, 9, 3, '2021-02-17 20:07:10', '2021-02-17 20:07:10');
+INSERT INTO `article_ratings` VALUES (381, 65, 10, 5, '2021-02-17 20:07:10', '2021-02-17 20:07:10');
+INSERT INTO `article_ratings` VALUES (382, 65, 11, 1, '2021-02-17 20:07:10', '2021-02-17 20:07:10');
+INSERT INTO `article_ratings` VALUES (383, 65, 12, 4, '2021-02-17 20:07:10', '2021-02-17 20:07:10');
+INSERT INTO `article_ratings` VALUES (384, 65, 13, 2, '2021-02-17 20:07:10', '2021-02-17 20:07:10');
+INSERT INTO `article_ratings` VALUES (385, 66, 2, 2, '2021-02-17 20:07:10', '2021-02-17 20:07:10');
+INSERT INTO `article_ratings` VALUES (386, 66, 3, 4, '2021-02-17 20:07:10', '2021-02-17 20:07:10');
+INSERT INTO `article_ratings` VALUES (387, 66, 4, 2, '2021-02-17 20:07:10', '2021-02-17 20:07:10');
+INSERT INTO `article_ratings` VALUES (388, 66, 5, 5, '2021-02-17 20:07:10', '2021-02-17 20:07:10');
+INSERT INTO `article_ratings` VALUES (389, 66, 6, 4, '2021-02-17 20:07:10', '2021-02-17 20:07:10');
+INSERT INTO `article_ratings` VALUES (390, 66, 7, 4, '2021-02-17 20:07:10', '2021-02-17 20:07:10');
+INSERT INTO `article_ratings` VALUES (391, 66, 8, 2, '2021-02-17 20:07:10', '2021-02-17 20:07:10');
+INSERT INTO `article_ratings` VALUES (392, 66, 9, 1, '2021-02-17 20:07:10', '2021-02-17 20:07:10');
+INSERT INTO `article_ratings` VALUES (393, 66, 10, 2, '2021-02-17 20:07:10', '2021-02-17 20:07:10');
+INSERT INTO `article_ratings` VALUES (394, 66, 11, 2, '2021-02-17 20:07:10', '2021-02-17 20:07:10');
+INSERT INTO `article_ratings` VALUES (395, 66, 12, 3, '2021-02-17 20:07:10', '2021-02-17 20:07:10');
+INSERT INTO `article_ratings` VALUES (396, 66, 13, 4, '2021-02-17 20:07:10', '2021-02-17 20:07:10');
+INSERT INTO `article_ratings` VALUES (397, 67, 2, 2, '2021-02-17 20:07:10', '2021-02-17 20:07:10');
+INSERT INTO `article_ratings` VALUES (398, 67, 3, 5, '2021-02-17 20:07:10', '2021-02-17 20:07:10');
+INSERT INTO `article_ratings` VALUES (399, 67, 4, 4, '2021-02-17 20:07:10', '2021-02-17 20:07:10');
+INSERT INTO `article_ratings` VALUES (400, 67, 5, 2, '2021-02-17 20:07:10', '2021-02-17 20:07:10');
+INSERT INTO `article_ratings` VALUES (401, 67, 6, 4, '2021-02-17 20:07:10', '2021-02-17 20:07:10');
+INSERT INTO `article_ratings` VALUES (402, 67, 7, 2, '2021-02-17 20:07:10', '2021-02-17 20:07:10');
+INSERT INTO `article_ratings` VALUES (403, 67, 8, 4, '2021-02-17 20:07:10', '2021-02-17 20:07:10');
+INSERT INTO `article_ratings` VALUES (404, 67, 9, 3, '2021-02-17 20:07:11', '2021-02-17 20:07:11');
+INSERT INTO `article_ratings` VALUES (405, 67, 10, 4, '2021-02-17 20:07:11', '2021-02-17 20:07:11');
+INSERT INTO `article_ratings` VALUES (406, 67, 11, 1, '2021-02-17 20:07:11', '2021-02-17 20:07:11');
+INSERT INTO `article_ratings` VALUES (407, 67, 12, 5, '2021-02-17 20:07:11', '2021-02-17 20:07:11');
+INSERT INTO `article_ratings` VALUES (408, 67, 13, 4, '2021-02-17 20:07:11', '2021-02-17 20:07:11');
+INSERT INTO `article_ratings` VALUES (409, 77, 2, 3, '2021-02-17 20:07:11', '2021-02-17 20:07:11');
+INSERT INTO `article_ratings` VALUES (410, 77, 3, 2, '2021-02-17 20:07:11', '2021-02-17 20:07:11');
+INSERT INTO `article_ratings` VALUES (411, 77, 4, 5, '2021-02-17 20:07:11', '2021-02-17 20:07:11');
+INSERT INTO `article_ratings` VALUES (412, 77, 5, 3, '2021-02-17 20:07:11', '2021-02-17 20:07:11');
+INSERT INTO `article_ratings` VALUES (413, 77, 6, 1, '2021-02-17 20:07:11', '2021-02-17 20:07:11');
+INSERT INTO `article_ratings` VALUES (414, 77, 7, 1, '2021-02-17 20:07:11', '2021-02-17 20:07:11');
+INSERT INTO `article_ratings` VALUES (415, 77, 8, 1, '2021-02-17 20:07:11', '2021-02-17 20:07:11');
+INSERT INTO `article_ratings` VALUES (416, 77, 9, 5, '2021-02-17 20:07:11', '2021-02-17 20:07:11');
+INSERT INTO `article_ratings` VALUES (417, 77, 10, 1, '2021-02-17 20:07:11', '2021-02-17 20:07:11');
+INSERT INTO `article_ratings` VALUES (418, 77, 11, 2, '2021-02-17 20:07:11', '2021-02-17 20:07:11');
+INSERT INTO `article_ratings` VALUES (419, 77, 12, 2, '2021-02-17 20:07:11', '2021-02-17 20:07:11');
+INSERT INTO `article_ratings` VALUES (420, 77, 13, 5, '2021-02-17 20:07:11', '2021-02-17 20:07:11');
+INSERT INTO `article_ratings` VALUES (421, 78, 2, 1, '2021-02-17 20:07:11', '2021-02-17 20:07:11');
+INSERT INTO `article_ratings` VALUES (422, 78, 3, 4, '2021-02-17 20:07:11', '2021-02-17 20:07:11');
+INSERT INTO `article_ratings` VALUES (423, 78, 4, 4, '2021-02-17 20:07:11', '2021-02-17 20:07:11');
+INSERT INTO `article_ratings` VALUES (424, 78, 5, 2, '2021-02-17 20:07:11', '2021-02-17 20:07:11');
+INSERT INTO `article_ratings` VALUES (425, 78, 6, 3, '2021-02-17 20:07:11', '2021-02-17 20:07:11');
+INSERT INTO `article_ratings` VALUES (426, 78, 7, 2, '2021-02-17 20:07:11', '2021-02-17 20:07:11');
+INSERT INTO `article_ratings` VALUES (427, 78, 8, 2, '2021-02-17 20:07:11', '2021-02-17 20:07:11');
+INSERT INTO `article_ratings` VALUES (428, 78, 9, 3, '2021-02-17 20:07:11', '2021-02-17 20:07:11');
+INSERT INTO `article_ratings` VALUES (429, 78, 10, 5, '2021-02-17 20:07:11', '2021-02-17 20:07:11');
+INSERT INTO `article_ratings` VALUES (430, 78, 11, 2, '2021-02-17 20:07:11', '2021-02-17 20:07:11');
+INSERT INTO `article_ratings` VALUES (431, 78, 12, 3, '2021-02-17 20:07:11', '2021-02-17 20:07:11');
+INSERT INTO `article_ratings` VALUES (432, 78, 13, 4, '2021-02-17 20:07:11', '2021-02-17 20:07:11');
+INSERT INTO `article_ratings` VALUES (433, 82, 2, 3, '2021-02-17 20:07:11', '2021-02-17 20:07:11');
+INSERT INTO `article_ratings` VALUES (434, 82, 3, 1, '2021-02-17 20:07:11', '2021-02-17 20:07:11');
+INSERT INTO `article_ratings` VALUES (435, 82, 4, 2, '2021-02-17 20:07:11', '2021-02-17 20:07:11');
+INSERT INTO `article_ratings` VALUES (436, 82, 5, 4, '2021-02-17 20:07:11', '2021-02-17 20:07:11');
+INSERT INTO `article_ratings` VALUES (437, 82, 6, 2, '2021-02-17 20:07:12', '2021-02-17 20:07:12');
+INSERT INTO `article_ratings` VALUES (438, 82, 7, 3, '2021-02-17 20:07:12', '2021-02-17 20:07:12');
+INSERT INTO `article_ratings` VALUES (439, 82, 8, 5, '2021-02-17 20:07:12', '2021-02-17 20:07:12');
+INSERT INTO `article_ratings` VALUES (440, 82, 9, 3, '2021-02-17 20:07:12', '2021-02-17 20:07:12');
+INSERT INTO `article_ratings` VALUES (441, 82, 10, 2, '2021-02-17 20:07:12', '2021-02-17 20:07:12');
+INSERT INTO `article_ratings` VALUES (442, 82, 11, 3, '2021-02-17 20:07:12', '2021-02-17 20:07:12');
+INSERT INTO `article_ratings` VALUES (443, 82, 12, 5, '2021-02-17 20:07:12', '2021-02-17 20:07:12');
+INSERT INTO `article_ratings` VALUES (444, 82, 13, 1, '2021-02-17 20:07:12', '2021-02-17 20:07:12');
+INSERT INTO `article_ratings` VALUES (445, 83, 2, 3, '2021-02-17 20:07:12', '2021-02-17 20:07:12');
+INSERT INTO `article_ratings` VALUES (446, 83, 3, 5, '2021-02-17 20:07:12', '2021-02-17 20:07:12');
+INSERT INTO `article_ratings` VALUES (447, 83, 4, 4, '2021-02-17 20:07:12', '2021-02-17 20:07:12');
+INSERT INTO `article_ratings` VALUES (448, 83, 5, 1, '2021-02-17 20:07:12', '2021-02-17 20:07:12');
+INSERT INTO `article_ratings` VALUES (449, 83, 6, 3, '2021-02-17 20:07:12', '2021-02-17 20:07:12');
+INSERT INTO `article_ratings` VALUES (450, 83, 7, 3, '2021-02-17 20:07:12', '2021-02-17 20:07:12');
+INSERT INTO `article_ratings` VALUES (451, 83, 8, 3, '2021-02-17 20:07:12', '2021-02-17 20:07:12');
+INSERT INTO `article_ratings` VALUES (452, 83, 9, 4, '2021-02-17 20:07:12', '2021-02-17 20:07:12');
+INSERT INTO `article_ratings` VALUES (453, 83, 10, 3, '2021-02-17 20:07:12', '2021-02-17 20:07:12');
+INSERT INTO `article_ratings` VALUES (454, 83, 11, 5, '2021-02-17 20:07:12', '2021-02-17 20:07:12');
+INSERT INTO `article_ratings` VALUES (455, 83, 12, 5, '2021-02-17 20:07:12', '2021-02-17 20:07:12');
+INSERT INTO `article_ratings` VALUES (456, 83, 13, 3, '2021-02-17 20:07:12', '2021-02-17 20:07:12');
+INSERT INTO `article_ratings` VALUES (457, 84, 2, 2, '2021-02-17 20:07:12', '2021-02-17 20:07:12');
+INSERT INTO `article_ratings` VALUES (458, 84, 3, 2, '2021-02-17 20:07:12', '2021-02-17 20:07:12');
+INSERT INTO `article_ratings` VALUES (459, 84, 4, 1, '2021-02-17 20:07:12', '2021-02-17 20:07:12');
+INSERT INTO `article_ratings` VALUES (460, 84, 5, 2, '2021-02-17 20:07:12', '2021-02-17 20:07:12');
+INSERT INTO `article_ratings` VALUES (461, 84, 6, 1, '2021-02-17 20:07:12', '2021-02-17 20:07:12');
+INSERT INTO `article_ratings` VALUES (462, 84, 7, 1, '2021-02-17 20:07:12', '2021-02-17 20:07:12');
+INSERT INTO `article_ratings` VALUES (463, 84, 8, 4, '2021-02-17 20:07:12', '2021-02-17 20:07:12');
+INSERT INTO `article_ratings` VALUES (464, 84, 9, 3, '2021-02-17 20:07:12', '2021-02-17 20:07:12');
+INSERT INTO `article_ratings` VALUES (465, 84, 10, 1, '2021-02-17 20:07:12', '2021-02-17 20:07:12');
+INSERT INTO `article_ratings` VALUES (466, 84, 11, 5, '2021-02-17 20:07:12', '2021-02-17 20:07:12');
+INSERT INTO `article_ratings` VALUES (467, 84, 12, 4, '2021-02-17 20:07:12', '2021-02-17 20:07:12');
+INSERT INTO `article_ratings` VALUES (468, 84, 13, 4, '2021-02-17 20:07:12', '2021-02-17 20:07:12');
+INSERT INTO `article_ratings` VALUES (469, 85, 2, 3, '2021-02-17 20:07:12', '2021-02-17 20:07:12');
+INSERT INTO `article_ratings` VALUES (470, 85, 3, 1, '2021-02-17 20:07:12', '2021-02-17 20:07:12');
+INSERT INTO `article_ratings` VALUES (471, 85, 4, 1, '2021-02-17 20:07:12', '2021-02-17 20:07:12');
+INSERT INTO `article_ratings` VALUES (472, 85, 5, 4, '2021-02-17 20:07:13', '2021-02-17 20:07:13');
+INSERT INTO `article_ratings` VALUES (473, 85, 6, 3, '2021-02-17 20:07:13', '2021-02-17 20:07:13');
+INSERT INTO `article_ratings` VALUES (474, 85, 7, 5, '2021-02-17 20:07:13', '2021-02-17 20:07:13');
+INSERT INTO `article_ratings` VALUES (475, 85, 8, 3, '2021-02-17 20:07:13', '2021-02-17 20:07:13');
+INSERT INTO `article_ratings` VALUES (476, 85, 9, 5, '2021-02-17 20:07:13', '2021-02-17 20:07:13');
+INSERT INTO `article_ratings` VALUES (477, 85, 10, 2, '2021-02-17 20:07:13', '2021-02-17 20:07:13');
+INSERT INTO `article_ratings` VALUES (478, 85, 11, 1, '2021-02-17 20:07:13', '2021-02-17 20:07:13');
+INSERT INTO `article_ratings` VALUES (479, 85, 12, 3, '2021-02-17 20:07:13', '2021-02-17 20:07:13');
+INSERT INTO `article_ratings` VALUES (480, 85, 13, 5, '2021-02-17 20:07:13', '2021-02-17 20:07:13');
+INSERT INTO `article_ratings` VALUES (481, 86, 2, 4, '2021-02-17 20:07:13', '2021-02-17 20:07:13');
+INSERT INTO `article_ratings` VALUES (482, 86, 3, 4, '2021-02-17 20:07:13', '2021-02-17 20:07:13');
+INSERT INTO `article_ratings` VALUES (483, 86, 4, 4, '2021-02-17 20:07:13', '2021-02-17 20:07:13');
+INSERT INTO `article_ratings` VALUES (484, 86, 5, 5, '2021-02-17 20:07:13', '2021-02-17 20:07:13');
+INSERT INTO `article_ratings` VALUES (485, 86, 6, 4, '2021-02-17 20:07:13', '2021-02-17 20:07:13');
+INSERT INTO `article_ratings` VALUES (486, 86, 7, 5, '2021-02-17 20:07:13', '2021-02-17 20:07:13');
+INSERT INTO `article_ratings` VALUES (487, 86, 8, 4, '2021-02-17 20:07:13', '2021-02-17 20:07:13');
+INSERT INTO `article_ratings` VALUES (488, 86, 9, 3, '2021-02-17 20:07:13', '2021-02-17 20:07:13');
+INSERT INTO `article_ratings` VALUES (489, 86, 10, 5, '2021-02-17 20:07:13', '2021-02-17 20:07:13');
+INSERT INTO `article_ratings` VALUES (490, 86, 11, 1, '2021-02-17 20:07:13', '2021-02-17 20:07:13');
+INSERT INTO `article_ratings` VALUES (491, 86, 12, 2, '2021-02-17 20:07:13', '2021-02-17 20:07:13');
+INSERT INTO `article_ratings` VALUES (492, 86, 13, 2, '2021-02-17 20:07:13', '2021-02-17 20:07:13');
+INSERT INTO `article_ratings` VALUES (493, 87, 2, 4, '2021-02-17 20:07:13', '2021-02-17 20:07:13');
+INSERT INTO `article_ratings` VALUES (494, 87, 3, 4, '2021-02-17 20:07:13', '2021-02-17 20:07:13');
+INSERT INTO `article_ratings` VALUES (495, 87, 4, 4, '2021-02-17 20:07:13', '2021-02-17 20:07:13');
+INSERT INTO `article_ratings` VALUES (496, 87, 5, 4, '2021-02-17 20:07:13', '2021-02-17 20:07:13');
+INSERT INTO `article_ratings` VALUES (497, 87, 6, 3, '2021-02-17 20:07:13', '2021-02-17 20:07:13');
+INSERT INTO `article_ratings` VALUES (498, 87, 7, 5, '2021-02-17 20:07:13', '2021-02-17 20:07:13');
+INSERT INTO `article_ratings` VALUES (499, 87, 8, 5, '2021-02-17 20:07:13', '2021-02-17 20:07:13');
+INSERT INTO `article_ratings` VALUES (500, 87, 9, 1, '2021-02-17 20:07:13', '2021-02-17 20:07:13');
+INSERT INTO `article_ratings` VALUES (501, 87, 10, 5, '2021-02-17 20:07:13', '2021-02-17 20:07:13');
+INSERT INTO `article_ratings` VALUES (502, 87, 11, 4, '2021-02-17 20:07:13', '2021-02-17 20:07:13');
+INSERT INTO `article_ratings` VALUES (503, 87, 12, 3, '2021-02-17 20:07:13', '2021-02-17 20:07:13');
+INSERT INTO `article_ratings` VALUES (504, 87, 13, 1, '2021-02-17 20:07:13', '2021-02-17 20:07:13');
+INSERT INTO `article_ratings` VALUES (505, 88, 2, 1, '2021-02-17 20:07:13', '2021-02-17 20:07:13');
+INSERT INTO `article_ratings` VALUES (506, 88, 3, 2, '2021-02-17 20:07:13', '2021-02-17 20:07:13');
+INSERT INTO `article_ratings` VALUES (507, 88, 4, 3, '2021-02-17 20:07:13', '2021-02-17 20:07:13');
+INSERT INTO `article_ratings` VALUES (508, 88, 5, 3, '2021-02-17 20:07:13', '2021-02-17 20:07:13');
+INSERT INTO `article_ratings` VALUES (509, 88, 6, 4, '2021-02-17 20:07:13', '2021-02-17 20:07:13');
+INSERT INTO `article_ratings` VALUES (510, 88, 7, 3, '2021-02-17 20:07:13', '2021-02-17 20:07:13');
+INSERT INTO `article_ratings` VALUES (511, 88, 8, 3, '2021-02-17 20:07:13', '2021-02-17 20:07:13');
+INSERT INTO `article_ratings` VALUES (512, 88, 9, 4, '2021-02-17 20:07:13', '2021-02-17 20:07:13');
+INSERT INTO `article_ratings` VALUES (513, 88, 10, 3, '2021-02-17 20:07:13', '2021-02-17 20:07:13');
+INSERT INTO `article_ratings` VALUES (514, 88, 11, 4, '2021-02-17 20:07:13', '2021-02-17 20:07:13');
+INSERT INTO `article_ratings` VALUES (515, 88, 12, 4, '2021-02-17 20:07:13', '2021-02-17 20:07:13');
+INSERT INTO `article_ratings` VALUES (516, 88, 13, 4, '2021-02-17 20:07:13', '2021-02-17 20:07:13');
+INSERT INTO `article_ratings` VALUES (517, 90, 2, 1, '2021-02-17 20:07:13', '2021-02-17 20:07:13');
+INSERT INTO `article_ratings` VALUES (518, 90, 3, 3, '2021-02-17 20:07:13', '2021-02-17 20:07:13');
+INSERT INTO `article_ratings` VALUES (519, 90, 4, 3, '2021-02-17 20:07:13', '2021-02-17 20:07:13');
+INSERT INTO `article_ratings` VALUES (520, 90, 5, 2, '2021-02-17 20:07:13', '2021-02-17 20:07:13');
+INSERT INTO `article_ratings` VALUES (521, 90, 6, 3, '2021-02-17 20:07:13', '2021-02-17 20:07:13');
+INSERT INTO `article_ratings` VALUES (522, 90, 7, 2, '2021-02-17 20:07:13', '2021-02-17 20:07:13');
+INSERT INTO `article_ratings` VALUES (523, 90, 8, 3, '2021-02-17 20:07:14', '2021-02-17 20:07:14');
+INSERT INTO `article_ratings` VALUES (524, 90, 9, 3, '2021-02-17 20:07:14', '2021-02-17 20:07:14');
+INSERT INTO `article_ratings` VALUES (525, 90, 10, 4, '2021-02-17 20:07:14', '2021-02-17 20:07:14');
+INSERT INTO `article_ratings` VALUES (526, 90, 11, 5, '2021-02-17 20:07:14', '2021-02-17 20:07:14');
+INSERT INTO `article_ratings` VALUES (527, 90, 12, 1, '2021-02-17 20:07:14', '2021-02-17 20:07:14');
+INSERT INTO `article_ratings` VALUES (528, 90, 13, 1, '2021-02-17 20:07:14', '2021-02-17 20:07:14');
+INSERT INTO `article_ratings` VALUES (529, 93, 2, 2, '2021-02-17 20:07:14', '2021-02-17 20:07:14');
+INSERT INTO `article_ratings` VALUES (530, 93, 3, 5, '2021-02-17 20:07:14', '2021-02-17 20:07:14');
+INSERT INTO `article_ratings` VALUES (531, 93, 4, 1, '2021-02-17 20:07:14', '2021-02-17 20:07:14');
+INSERT INTO `article_ratings` VALUES (532, 93, 5, 1, '2021-02-17 20:07:14', '2021-02-17 20:07:14');
+INSERT INTO `article_ratings` VALUES (533, 93, 6, 5, '2021-02-17 20:07:14', '2021-02-17 20:07:14');
+INSERT INTO `article_ratings` VALUES (534, 93, 7, 5, '2021-02-17 20:07:14', '2021-02-17 20:07:14');
+INSERT INTO `article_ratings` VALUES (535, 93, 8, 4, '2021-02-17 20:07:14', '2021-02-17 20:07:14');
+INSERT INTO `article_ratings` VALUES (536, 93, 9, 5, '2021-02-17 20:07:14', '2021-02-17 20:07:14');
+INSERT INTO `article_ratings` VALUES (537, 93, 10, 2, '2021-02-17 20:07:14', '2021-02-17 20:07:14');
+INSERT INTO `article_ratings` VALUES (538, 93, 11, 2, '2021-02-17 20:07:14', '2021-02-17 20:07:14');
+INSERT INTO `article_ratings` VALUES (539, 93, 12, 5, '2021-02-17 20:07:14', '2021-02-17 20:07:14');
+INSERT INTO `article_ratings` VALUES (540, 93, 13, 4, '2021-02-17 20:07:14', '2021-02-17 20:07:14');
+INSERT INTO `article_ratings` VALUES (541, 97, 2, 1, '2021-02-17 20:07:14', '2021-02-17 20:07:14');
+INSERT INTO `article_ratings` VALUES (542, 97, 3, 4, '2021-02-17 20:07:14', '2021-02-17 20:07:14');
+INSERT INTO `article_ratings` VALUES (543, 97, 4, 4, '2021-02-17 20:07:14', '2021-02-17 20:07:14');
+INSERT INTO `article_ratings` VALUES (544, 97, 5, 1, '2021-02-17 20:07:14', '2021-02-17 20:07:14');
+INSERT INTO `article_ratings` VALUES (545, 97, 6, 4, '2021-02-17 20:07:14', '2021-02-17 20:07:14');
+INSERT INTO `article_ratings` VALUES (546, 97, 7, 1, '2021-02-17 20:07:14', '2021-02-17 20:07:14');
+INSERT INTO `article_ratings` VALUES (547, 97, 8, 3, '2021-02-17 20:07:14', '2021-02-17 20:07:14');
+INSERT INTO `article_ratings` VALUES (548, 97, 9, 2, '2021-02-17 20:07:14', '2021-02-17 20:07:14');
+INSERT INTO `article_ratings` VALUES (549, 97, 10, 4, '2021-02-17 20:07:14', '2021-02-17 20:07:14');
+INSERT INTO `article_ratings` VALUES (550, 97, 11, 4, '2021-02-17 20:07:14', '2021-02-17 20:07:14');
+INSERT INTO `article_ratings` VALUES (551, 97, 12, 5, '2021-02-17 20:07:14', '2021-02-17 20:07:14');
+INSERT INTO `article_ratings` VALUES (552, 97, 13, 2, '2021-02-17 20:07:14', '2021-02-17 20:07:14');
+
+-- ----------------------------
+-- Table structure for articles
+-- ----------------------------
+DROP TABLE IF EXISTS `articles`;
+CREATE TABLE `articles`  (
+  `id` bigint(0) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `user_id` bigint(0) UNSIGNED NOT NULL,
+  `title` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `slug` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `body` text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `publish_date` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP(0),
+  `status` tinyint(0) NOT NULL DEFAULT 0,
+  `created_at` timestamp(0) NULL DEFAULT NULL,
+  `updated_at` timestamp(0) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  UNIQUE INDEX `articles_slug_unique`(`slug`) USING BTREE,
+  INDEX `articles_user_id_foreign`(`user_id`) USING BTREE,
+  CONSTRAINT `articles_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of articles
+-- ----------------------------
+INSERT INTO `articles` VALUES (1, 1, 'Error delectus ut eum eveniet alias.', 'error-delectus-ut-eum-eveniet-alias', 'Iste ut veniam ut incidunt ut iste. Sed est maxime eligendi consequatur magnam mollitia vel quia.', '2021-02-04 13:02:11', 0, '2021-02-17 20:06:55', '2021-02-17 20:06:55');
+INSERT INTO `articles` VALUES (2, 2, 'Quod minima maiores illo quidem.', 'quod-minima-maiores-illo-quidem', 'Dolorum in voluptatem tempora. Quasi accusantium est sunt. Nihil id aut amet at ut aut est explicabo.', '2021-02-27 02:47:41', 1, '2021-02-17 20:06:55', '2021-02-17 20:06:55');
+INSERT INTO `articles` VALUES (3, 1, 'Ducimus voluptatem nostrum quo corrupti vel.', 'ducimus-voluptatem-nostrum-quo-corrupti-vel', 'Odio accusantium excepturi dolores neque. Voluptatem quis voluptas qui dolorem.', '2021-04-20 08:13:39', 1, '2021-02-17 20:06:55', '2021-02-17 20:06:55');
+INSERT INTO `articles` VALUES (4, 1, 'Pariatur quidem et et.', 'pariatur-quidem-et-et', 'Molestias porro porro eligendi quis corporis a quaerat. Ratione minima quia voluptatum consequatur nobis. Quae hic est rem rem quisquam dignissimos labore veniam.', '2020-08-12 07:03:22', 1, '2021-02-17 20:06:55', '2021-02-17 20:06:55');
+INSERT INTO `articles` VALUES (5, 2, 'Minus adipisci est harum.', 'minus-adipisci-est-harum', 'Quaerat eligendi iste earum est. Velit ex sed rerum et consequuntur doloremque. Cum et necessitatibus perspiciatis labore est omnis ipsum. Maiores sit facere voluptates et numquam. Necessitatibus a autem dolorem maiores neque dolorem accusantium blanditiis.', '2020-05-30 13:44:23', 1, '2021-02-17 20:06:55', '2021-02-17 20:06:55');
+INSERT INTO `articles` VALUES (6, 1, 'Aliquid in voluptas similique dolorem eos.', 'aliquid-in-voluptas-similique-dolorem-eos', 'Facere reprehenderit aut harum qui veritatis. Repellat corrupti mollitia rem minima vitae exercitationem blanditiis.', '2021-11-03 20:47:26', 1, '2021-02-17 20:06:56', '2021-02-17 20:06:56');
+INSERT INTO `articles` VALUES (7, 2, 'Hic et est incidunt vel sed.', 'hic-et-est-incidunt-vel-sed', 'Qui nihil natus officiis voluptatem nisi ex aut. Quidem voluptatem et rerum fugit. Rerum architecto velit quis accusamus quo rerum possimus enim.', '2022-01-18 03:13:54', 1, '2021-02-17 20:06:56', '2021-02-17 20:06:56');
+INSERT INTO `articles` VALUES (8, 2, 'Odio sint voluptatem perferendis.', 'odio-sint-voluptatem-perferendis', 'Modi natus tempore consequatur iste molestiae minus. Sed inventore architecto qui tempora aut sed numquam.', '2020-11-05 07:28:32', 1, '2021-02-17 20:06:56', '2021-02-17 20:06:56');
+INSERT INTO `articles` VALUES (9, 1, 'Iure qui ab odit laudantium repellat non.', 'iure-qui-ab-odit-laudantium-repellat-non', 'Ex molestiae velit omnis nam esse beatae voluptatum. Impedit nostrum perspiciatis molestias animi repellendus voluptatem nesciunt. Quis quos illo est.', '2020-12-08 17:48:03', 1, '2021-02-17 20:06:56', '2021-02-17 20:06:56');
+INSERT INTO `articles` VALUES (10, 1, 'Dolore repellendus fugiat tenetur suscipit.', 'dolore-repellendus-fugiat-tenetur-suscipit', 'Possimus non minus consectetur consequuntur non quia. Recusandae repellat mollitia voluptas rerum aut sint aut.', '2020-07-20 20:10:04', 1, '2021-02-17 20:06:56', '2021-02-17 20:06:56');
+INSERT INTO `articles` VALUES (11, 1, 'Nobis dolor unde repudiandae enim a in.', 'nobis-dolor-unde-repudiandae-enim-a-in', 'Sequi ipsam sapiente et rerum fuga ut et. Voluptatem sunt repellendus omnis voluptas quos non.', '2021-04-30 20:30:59', 0, '2021-02-17 20:06:56', '2021-02-17 20:06:56');
+INSERT INTO `articles` VALUES (12, 1, 'Occaecati et qui deserunt.', 'occaecati-et-qui-deserunt', 'Et unde error sapiente ut tempora aut. Possimus esse vero adipisci ut tempora.', '2020-06-25 22:13:21', 1, '2021-02-17 20:06:56', '2021-02-17 20:06:56');
+INSERT INTO `articles` VALUES (13, 2, 'Sunt fuga porro aut.', 'sunt-fuga-porro-aut', 'Voluptas aut vel vel et et quia sapiente nulla. Sunt eius hic sed. Nihil minima voluptatem vitae velit. Ab dolores officia quaerat.', '2021-12-27 02:05:46', 1, '2021-02-17 20:06:56', '2021-02-17 20:06:56');
+INSERT INTO `articles` VALUES (14, 1, 'Atque velit modi ab vitae et.', 'atque-velit-modi-ab-vitae-et', 'Eos et magnam minima voluptas. Et blanditiis amet minus.', '2021-08-13 12:45:15', 1, '2021-02-17 20:06:56', '2021-02-17 20:06:56');
+INSERT INTO `articles` VALUES (15, 1, 'Ex hic et commodi dignissimos quia non quidem.', 'ex-hic-et-commodi-dignissimos-quia-non-quidem', 'Architecto mollitia id quisquam voluptas porro. Quam laboriosam deleniti tempore et ab omnis maiores. Fugit illo et est unde. Recusandae corporis ad vel earum dolorum. Eum temporibus possimus reiciendis quos eius voluptatibus. Ut ut cupiditate perferendis assumenda debitis.', '2020-03-25 22:59:30', 1, '2021-02-17 20:06:56', '2021-02-17 20:06:56');
+INSERT INTO `articles` VALUES (16, 1, 'Aliquam deleniti voluptas at.', 'aliquam-deleniti-voluptas-at', 'Consequatur ea et molestiae suscipit labore. Accusantium libero laudantium et autem facere explicabo voluptatum. Suscipit perspiciatis soluta voluptatum labore tenetur quia deleniti.', '2020-10-27 17:51:36', 1, '2021-02-17 20:06:56', '2021-02-17 20:06:56');
+INSERT INTO `articles` VALUES (17, 1, 'Voluptatibus iure sint sit error modi.', 'voluptatibus-iure-sint-sit-error-modi', 'Voluptatum minus aut natus. Aspernatur quibusdam qui doloribus totam facilis. Id omnis explicabo nobis et soluta. Aut eveniet distinctio quia unde ut ad repellat qui.', '2021-04-06 14:53:03', 1, '2021-02-17 20:06:56', '2021-02-17 20:06:56');
+INSERT INTO `articles` VALUES (18, 1, 'Velit temporibus quo quaerat.', 'velit-temporibus-quo-quaerat', 'Laboriosam facere quia excepturi necessitatibus. Dignissimos consequatur vel autem id. Voluptatibus tenetur dignissimos quae animi esse iure.', '2020-08-06 08:02:12', 1, '2021-02-17 20:06:56', '2021-02-17 20:06:56');
+INSERT INTO `articles` VALUES (19, 1, 'Maxime neque minus expedita rerum ad accusantium.', 'maxime-neque-minus-expedita-rerum-ad-accusantium', 'Qui tempore aliquam qui velit est. Praesentium necessitatibus eius tenetur omnis cum aliquam. Quisquam at laborum velit sunt. Modi ducimus dolorum qui consequatur harum maiores nulla.', '2021-12-11 15:15:32', 1, '2021-02-17 20:06:56', '2021-02-17 20:06:56');
+INSERT INTO `articles` VALUES (20, 2, 'Accusantium aut consectetur et et nam.', 'accusantium-aut-consectetur-et-et-nam', 'Quia dolorem error et cumque culpa ut cupiditate. Minus earum voluptates deleniti rerum. Sunt soluta vero tempora totam placeat harum voluptas.', '2020-10-19 23:48:50', 1, '2021-02-17 20:06:56', '2021-02-17 20:06:56');
+INSERT INTO `articles` VALUES (21, 1, 'Ex quo et voluptas ipsam facere.', 'ex-quo-et-voluptas-ipsam-facere', 'Possimus dicta repudiandae pariatur sit quo nostrum tempore cupiditate. Non doloremque qui explicabo aspernatur cupiditate unde odio. Est iusto praesentium quis. Adipisci autem et ex omnis enim nostrum id voluptatem.', '2021-07-03 10:30:39', 0, '2021-02-17 20:06:56', '2021-02-17 20:06:56');
+INSERT INTO `articles` VALUES (22, 2, 'Saepe at et impedit ut veniam qui nihil.', 'saepe-at-et-impedit-ut-veniam-qui-nihil', 'Eos sit voluptate molestiae quia. Saepe maiores accusantium magnam quia culpa amet.', '2021-07-08 04:42:52', 1, '2021-02-17 20:06:56', '2021-02-17 20:06:56');
+INSERT INTO `articles` VALUES (23, 2, 'Rerum maxime cumque id non voluptas dolor veniam.', 'rerum-maxime-cumque-id-non-voluptas-dolor-veniam', 'Ab maiores vel officiis ullam. Aut recusandae a rerum. Ea optio quis minus et.', '2020-04-03 00:14:04', 1, '2021-02-17 20:06:56', '2021-02-17 20:06:56');
+INSERT INTO `articles` VALUES (24, 1, 'Placeat aut minus qui nostrum cupiditate et et.', 'placeat-aut-minus-qui-nostrum-cupiditate-et-et', 'Laudantium omnis libero eos porro qui cumque consectetur. Officiis non accusantium sint reiciendis et voluptates.', '2020-05-01 18:04:13', 1, '2021-02-17 20:06:56', '2021-02-17 20:06:56');
+INSERT INTO `articles` VALUES (25, 2, 'Aperiam ad velit aut quia. Eos non vel quia.', 'aperiam-ad-velit-aut-quia-eos-non-vel-quia', 'Praesentium quis quaerat id et asperiores alias vero. Eos eos nesciunt error quia. Repellendus et atque voluptatem explicabo aut qui. Est dolores quia ipsum excepturi earum.', '2020-03-19 15:13:01', 1, '2021-02-17 20:06:56', '2021-02-17 20:06:56');
+INSERT INTO `articles` VALUES (26, 1, 'Autem tenetur magni magni dignissimos natus.', 'autem-tenetur-magni-magni-dignissimos-natus', 'Amet excepturi quos harum autem ad fuga. Sunt ipsa asperiores minima.', '2020-05-20 23:02:06', 1, '2021-02-17 20:06:56', '2021-02-17 20:06:56');
+INSERT INTO `articles` VALUES (27, 2, 'Aut similique modi consequatur.', 'aut-similique-modi-consequatur', 'Voluptas illo modi ullam et aliquid et incidunt. Nemo accusamus rem quas voluptas. Ea mollitia iste et. Sit veritatis et non quis dolore.', '2020-05-20 01:13:43', 1, '2021-02-17 20:06:56', '2021-02-17 20:06:56');
+INSERT INTO `articles` VALUES (28, 2, 'Libero doloribus autem enim illo nemo officia.', 'libero-doloribus-autem-enim-illo-nemo-officia', 'Consectetur enim quibusdam nisi officia illo. Et omnis consequatur et rerum. Tempore corrupti laborum dolores modi commodi possimus.', '2021-09-25 17:27:39', 1, '2021-02-17 20:06:56', '2021-02-17 20:06:56');
+INSERT INTO `articles` VALUES (29, 1, 'Pariatur velit voluptatem itaque repellat.', 'pariatur-velit-voluptatem-itaque-repellat', 'Temporibus perferendis provident eos. Enim sint quis voluptatem non enim a molestias. Dolor ut rerum tenetur suscipit reiciendis sed nostrum.', '2021-11-05 17:01:34', 1, '2021-02-17 20:06:56', '2021-02-17 20:06:56');
+INSERT INTO `articles` VALUES (30, 1, 'Officia quaerat illum molestias neque eaque.', 'officia-quaerat-illum-molestias-neque-eaque', 'Quia sed et quia illo et. Sit assumenda et incidunt tenetur eligendi iure aliquid ut. Sapiente velit adipisci numquam est omnis facere. Et illum facere dolor ab minus optio debitis.', '2020-04-13 13:16:53', 1, '2021-02-17 20:06:56', '2021-02-17 20:06:56');
+INSERT INTO `articles` VALUES (31, 2, 'Voluptatem sed unde dolore qui aut itaque velit.', 'voluptatem-sed-unde-dolore-qui-aut-itaque-velit', 'Aut consequatur nesciunt rerum delectus. Dolor cupiditate ipsa suscipit commodi.', '2022-01-15 03:23:32', 0, '2021-02-17 20:06:56', '2021-02-17 20:06:56');
+INSERT INTO `articles` VALUES (32, 1, 'Aperiam tenetur libero eum enim.', 'aperiam-tenetur-libero-eum-enim', 'Minus non aperiam reiciendis asperiores voluptas beatae. Veniam recusandae perferendis tempore enim.', '2020-03-13 08:01:11', 1, '2021-02-17 20:06:56', '2021-02-17 20:06:56');
+INSERT INTO `articles` VALUES (33, 1, 'Eos expedita nisi corporis dolorem accusantium.', 'eos-expedita-nisi-corporis-dolorem-accusantium', 'Error dolor quidem sint voluptas placeat quisquam. Tempore quia ut amet enim quam ea. Eum perferendis ut et culpa vero. In ut eos libero. Explicabo libero distinctio accusantium perferendis. Molestiae ut ut sed voluptate a et suscipit.', '2020-07-25 10:56:41', 1, '2021-02-17 20:06:56', '2021-02-17 20:06:56');
+INSERT INTO `articles` VALUES (34, 1, 'Et velit incidunt explicabo sed culpa corporis.', 'et-velit-incidunt-explicabo-sed-culpa-corporis', 'Odio repellat reprehenderit culpa exercitationem. Enim necessitatibus et necessitatibus mollitia. Sint tenetur quos et ut accusamus neque quia repellendus.', '2021-10-07 03:08:10', 1, '2021-02-17 20:06:56', '2021-02-17 20:06:56');
+INSERT INTO `articles` VALUES (35, 2, 'Aut nisi sint eligendi.', 'aut-nisi-sint-eligendi', 'Et aut rerum distinctio sed itaque. Deleniti omnis autem est harum. Placeat sequi necessitatibus omnis quis consectetur odit eum consequatur.', '2020-09-30 13:06:35', 1, '2021-02-17 20:06:56', '2021-02-17 20:06:56');
+INSERT INTO `articles` VALUES (36, 2, 'Similique autem nam aut aut.', 'similique-autem-nam-aut-aut', 'Sapiente nam illum ad corporis explicabo laudantium omnis. Explicabo ipsam hic quia qui aperiam magnam.', '2021-04-10 06:47:20', 1, '2021-02-17 20:06:56', '2021-02-17 20:06:56');
+INSERT INTO `articles` VALUES (37, 1, 'Quidem quae rerum at qui velit suscipit dolorem.', 'quidem-quae-rerum-at-qui-velit-suscipit-dolorem', 'Ipsa esse autem veritatis possimus consequuntur. Minima perspiciatis eum accusantium ea et doloremque quisquam molestiae. Eveniet eos est hic sint minima et.', '2021-03-25 08:01:47', 1, '2021-02-17 20:06:56', '2021-02-17 20:06:56');
+INSERT INTO `articles` VALUES (38, 2, 'Fugiat non tenetur dolorum accusamus accusamus.', 'fugiat-non-tenetur-dolorum-accusamus-accusamus', 'Officiis dicta tempora quis fugit. Ut est in sapiente commodi expedita. Magnam fuga voluptatem et omnis culpa non molestiae numquam.', '2020-12-28 16:51:16', 1, '2021-02-17 20:06:56', '2021-02-17 20:06:56');
+INSERT INTO `articles` VALUES (39, 1, 'Adipisci et adipisci veritatis esse.', 'adipisci-et-adipisci-veritatis-esse', 'Delectus porro qui rerum consequatur dolores sint. Minima repellat repudiandae quasi quidem. Accusantium provident voluptas aperiam voluptatem itaque reiciendis dolorem. Enim rerum libero atque enim eos. Ut illum veniam sunt nobis quod dolor temporibus. Rem sapiente ipsum nam ducimus voluptas voluptas repellat.', '2021-02-21 10:05:04', 1, '2021-02-17 20:06:56', '2021-02-17 20:06:56');
+INSERT INTO `articles` VALUES (40, 1, 'Distinctio tenetur architecto consectetur.', 'distinctio-tenetur-architecto-consectetur', 'Ex beatae accusantium deleniti omnis a. Est consequatur nam accusantium. Neque sit voluptatem officia nam. Possimus minus rerum mollitia adipisci possimus veritatis optio. Harum molestias dicta magni voluptate sapiente quo.', '2021-10-29 02:19:42', 1, '2021-02-17 20:06:56', '2021-02-17 20:06:56');
+INSERT INTO `articles` VALUES (41, 1, 'Doloremque temporibus architecto sit tenetur.', 'doloremque-temporibus-architecto-sit-tenetur', 'Consequuntur laborum eligendi quae quae porro nihil. Incidunt quo alias ab assumenda facere corrupti.', '2021-02-24 09:41:44', 0, '2021-02-17 20:06:56', '2021-02-17 20:06:56');
+INSERT INTO `articles` VALUES (42, 2, 'Ab temporibus veniam maxime beatae.', 'ab-temporibus-veniam-maxime-beatae', 'Omnis sit voluptas nobis et rem. Doloremque corrupti in nam et suscipit. Magni pariatur est animi ut est voluptas. Doloremque explicabo quis ipsum quo expedita.', '2022-01-29 02:11:09', 1, '2021-02-17 20:06:56', '2021-02-17 20:06:56');
+INSERT INTO `articles` VALUES (43, 2, 'Rem magnam sunt voluptas vel.', 'rem-magnam-sunt-voluptas-vel', 'Repellendus nam nulla commodi consequatur unde. Voluptatem labore natus in non enim quasi. Eum sapiente quia quia ducimus quia. Debitis officiis earum voluptatem eius expedita quisquam sit.', '2021-10-02 09:29:02', 1, '2021-02-17 20:06:56', '2021-02-17 20:06:56');
+INSERT INTO `articles` VALUES (44, 1, 'Consequuntur ut ipsa ea autem.', 'consequuntur-ut-ipsa-ea-autem', 'Et aliquid quia amet. Distinctio magnam dicta natus consequatur non modi.', '2021-02-06 04:33:23', 1, '2021-02-17 20:06:56', '2021-02-17 20:06:56');
+INSERT INTO `articles` VALUES (45, 1, 'Quia sit repellendus perferendis quod at.', 'quia-sit-repellendus-perferendis-quod-at', 'Rerum et eos reiciendis fugit. Molestiae et illum ut deleniti accusamus aut qui.', '2020-02-22 12:49:00', 1, '2021-02-17 20:06:56', '2021-02-17 20:06:56');
+INSERT INTO `articles` VALUES (46, 2, 'Culpa est eius et qui.', 'culpa-est-eius-et-qui', 'Quis facilis minima quaerat repellat veniam. Nostrum dolores sed amet natus et eos sit voluptatem. Fuga voluptatem autem vero dicta et tempore enim.', '2020-09-08 15:33:30', 1, '2021-02-17 20:06:56', '2021-02-17 20:06:56');
+INSERT INTO `articles` VALUES (47, 2, 'Consequatur voluptas dolores autem.', 'consequatur-voluptas-dolores-autem', 'Minima et cupiditate ullam voluptatem corporis maxime non. Quo repudiandae ut illum et dolorem optio ipsa. Officiis suscipit qui assumenda iure quas.', '2021-11-29 12:19:13', 1, '2021-02-17 20:06:56', '2021-02-17 20:06:56');
+INSERT INTO `articles` VALUES (48, 2, 'Rerum explicabo nulla omnis minima minima.', 'rerum-explicabo-nulla-omnis-minima-minima', 'Et quis ratione asperiores rerum animi nihil. Optio unde illum earum voluptatibus voluptas unde. Aliquid laudantium aut id ad mollitia.', '2021-09-21 14:42:33', 1, '2021-02-17 20:06:56', '2021-02-17 20:06:56');
+INSERT INTO `articles` VALUES (49, 1, 'Non fugiat aspernatur rerum eligendi nobis.', 'non-fugiat-aspernatur-rerum-eligendi-nobis', 'In sapiente illo et. Nihil voluptas pariatur porro voluptatum perspiciatis tempore non natus. Quasi exercitationem repudiandae quia quisquam id dolores rem voluptatem. Necessitatibus dolorem aut nihil magni in iusto.', '2021-05-16 23:01:47', 1, '2021-02-17 20:06:56', '2021-02-17 20:06:56');
+INSERT INTO `articles` VALUES (50, 1, 'In voluptas cum ut vitae itaque.', 'in-voluptas-cum-ut-vitae-itaque', 'Minima quasi aut ut nihil. Eius distinctio natus quia aut omnis. Voluptatem reiciendis enim qui et nam distinctio.', '2021-02-21 17:09:19', 1, '2021-02-17 20:06:56', '2021-02-17 20:06:56');
+INSERT INTO `articles` VALUES (51, 2, 'Cupiditate praesentium dolorem itaque voluptatem.', 'cupiditate-praesentium-dolorem-itaque-voluptatem', 'Neque voluptates in maiores alias qui autem. Blanditiis aliquam quia nemo modi vero aliquid.', '2021-10-23 14:18:32', 0, '2021-02-17 20:06:56', '2021-02-17 20:06:56');
+INSERT INTO `articles` VALUES (52, 2, 'Illum dolorem dolorem officiis.', 'illum-dolorem-dolorem-officiis', 'Tempora incidunt et ut nihil in iste qui. Ipsam accusantium blanditiis sint veritatis reiciendis dicta. Reiciendis ut adipisci ut aliquam perferendis illo. Voluptatem possimus aut temporibus adipisci.', '2021-10-20 20:23:46', 1, '2021-02-17 20:06:56', '2021-02-17 20:06:56');
+INSERT INTO `articles` VALUES (53, 1, 'Repudiandae voluptas corporis ipsa doloremque.', 'repudiandae-voluptas-corporis-ipsa-doloremque', 'Aut consequuntur est qui aliquid sit. Sit dolorum et voluptatem in iusto praesentium error.', '2020-10-23 04:20:42', 1, '2021-02-17 20:06:56', '2021-02-17 20:06:56');
+INSERT INTO `articles` VALUES (54, 1, 'Illum eveniet autem beatae tempore.', 'illum-eveniet-autem-beatae-tempore', 'Enim iusto ut qui ea magnam voluptatem fugiat. Quidem animi est consectetur eius eaque.', '2020-08-12 17:23:15', 1, '2021-02-17 20:06:56', '2021-02-17 20:06:56');
+INSERT INTO `articles` VALUES (55, 2, 'Soluta explicabo vel dolorem.', 'soluta-explicabo-vel-dolorem', 'Ut voluptatibus sint alias eius quos accusantium asperiores. Assumenda et sint dolorem esse dolor explicabo enim. Saepe ipsam eos temporibus quia at.', '2020-07-27 05:58:26', 1, '2021-02-17 20:06:56', '2021-02-17 20:06:56');
+INSERT INTO `articles` VALUES (56, 1, 'Quibusdam eligendi ut et atque.', 'quibusdam-eligendi-ut-et-atque', 'Sit tempora ut aut exercitationem modi similique est nesciunt. Est deleniti qui rerum delectus suscipit laudantium dolor. Voluptatem illo ullam quisquam quae aspernatur officiis.', '2021-03-17 21:06:29', 1, '2021-02-17 20:06:56', '2021-02-17 20:06:56');
+INSERT INTO `articles` VALUES (57, 2, 'Fugiat est quas facilis consequatur aut sit.', 'fugiat-est-quas-facilis-consequatur-aut-sit', 'Et dolorem est veniam vitae tempore dolorum nesciunt. Recusandae sequi praesentium iste provident facere repellendus. Necessitatibus vero labore iure a nesciunt maxime iste rerum. Magnam id ut autem iusto.', '2020-06-17 07:39:35', 1, '2021-02-17 20:06:56', '2021-02-17 20:06:56');
+INSERT INTO `articles` VALUES (58, 1, 'Qui qui ipsa ipsam veritatis quidem.', 'qui-qui-ipsa-ipsam-veritatis-quidem', 'Et magni enim est amet dolorum rerum quia hic. Ratione eum necessitatibus voluptas est ex praesentium non. Est consequatur nihil molestiae quos sed id rem. Ut qui saepe animi quae dolorem saepe. Quibusdam eum est et dolore ducimus omnis voluptas et.', '2020-08-26 07:53:35', 1, '2021-02-17 20:06:56', '2021-02-17 20:06:56');
+INSERT INTO `articles` VALUES (59, 1, 'Ipsa quo animi labore mollitia sint.', 'ipsa-quo-animi-labore-mollitia-sint', 'Voluptatem quidem et voluptatem. Corporis iusto voluptatem sint voluptatem quaerat ex soluta. Nihil asperiores hic facilis dolorem hic similique consequatur.', '2021-09-09 01:58:24', 1, '2021-02-17 20:06:56', '2021-02-17 20:06:56');
+INSERT INTO `articles` VALUES (60, 1, 'Quae error molestias quia.', 'quae-error-molestias-quia', 'Ducimus maxime voluptatem ratione sint suscipit dolor. Expedita ab eos sunt labore totam. Nisi velit qui ab rerum qui quo quibusdam quasi. Sunt doloribus et recusandae a quia assumenda. Perferendis tempore est voluptas sed illo rerum aperiam. Impedit occaecati quis eligendi ullam error atque.', '2021-10-30 23:11:21', 1, '2021-02-17 20:06:56', '2021-02-17 20:06:56');
+INSERT INTO `articles` VALUES (61, 2, 'Sint est corporis quidem vel debitis veniam ea.', 'sint-est-corporis-quidem-vel-debitis-veniam-ea', 'Est perferendis qui sunt quia quia similique et. Commodi facilis pariatur praesentium inventore. Qui perspiciatis perspiciatis repellat sit qui numquam. Mollitia eaque a quia consequatur at deserunt.', '2021-04-21 23:15:01', 0, '2021-02-17 20:06:56', '2021-02-17 20:06:56');
+INSERT INTO `articles` VALUES (62, 2, 'Mollitia officia ipsam velit odit ut.', 'mollitia-officia-ipsam-velit-odit-ut', 'Quia dolorem quam at consectetur. Dignissimos rerum quia similique hic voluptatum dolorem consequatur ex. Eaque non enim tenetur dolorum a. Molestiae natus laborum maxime nemo.', '2020-07-05 23:49:13', 1, '2021-02-17 20:06:56', '2021-02-17 20:06:56');
+INSERT INTO `articles` VALUES (63, 2, 'Cumque iusto aut alias quos omnis molestias.', 'cumque-iusto-aut-alias-quos-omnis-molestias', 'Quo dignissimos ab provident id. Necessitatibus est dicta voluptatem dicta dolorum deserunt in.', '2020-02-25 20:29:05', 1, '2021-02-17 20:06:56', '2021-02-17 20:06:56');
+INSERT INTO `articles` VALUES (64, 1, 'Voluptatem itaque sint vel magnam.', 'voluptatem-itaque-sint-vel-magnam', 'Et ut eum consequuntur esse molestiae provident. Nihil rerum sit qui rerum est.', '2021-03-08 01:22:24', 1, '2021-02-17 20:06:57', '2021-02-17 20:06:57');
+INSERT INTO `articles` VALUES (65, 1, 'Doloribus velit iusto et in voluptas corrupti.', 'doloribus-velit-iusto-et-in-voluptas-corrupti', 'Rem consequuntur quas aperiam minima ab numquam et. Eum qui quia qui architecto assumenda.', '2020-02-24 22:37:16', 1, '2021-02-17 20:06:57', '2021-02-17 20:06:57');
+INSERT INTO `articles` VALUES (66, 1, 'Fuga aut qui a quia.', 'fuga-aut-qui-a-quia', 'Delectus est occaecati consequuntur sit quam. Aut ut et velit eaque. Quo harum perspiciatis ut voluptatem optio. Dolore nulla quis modi debitis harum ducimus. Voluptas vitae quasi ipsam. Dolorum qui voluptatem iusto illum sequi.', '2020-07-31 22:56:48', 1, '2021-02-17 20:06:57', '2021-02-17 20:06:57');
+INSERT INTO `articles` VALUES (67, 2, 'Totam fuga eligendi distinctio voluptatum optio.', 'totam-fuga-eligendi-distinctio-voluptatum-optio', 'Rerum distinctio atque odio molestias maiores assumenda similique. Sunt dolorem est iste cupiditate rem enim dolor.', '2020-07-30 17:32:07', 1, '2021-02-17 20:06:57', '2021-02-17 20:06:57');
+INSERT INTO `articles` VALUES (68, 1, 'Est asperiores maxime tempore quibusdam.', 'est-asperiores-maxime-tempore-quibusdam', 'Aut distinctio amet in. Dolorem enim tempora aut officia eius et sapiente iste. Laboriosam exercitationem voluptatem molestias.', '2021-12-29 00:30:41', 1, '2021-02-17 20:06:57', '2021-02-17 20:06:57');
+INSERT INTO `articles` VALUES (69, 1, 'Eos aut et laudantium ea dolorem est molestiae.', 'eos-aut-et-laudantium-ea-dolorem-est-molestiae', 'Illum est et voluptatem non blanditiis qui. Repellendus illum facilis vero molestias.', '2021-03-29 19:21:56', 1, '2021-02-17 20:06:57', '2021-02-17 20:06:57');
+INSERT INTO `articles` VALUES (70, 2, 'Consequatur a dolores facere qui sit quod.', 'consequatur-a-dolores-facere-qui-sit-quod', 'Quidem saepe iure unde dolore. Aut dolorem qui dolor minima sit omnis consequuntur. Voluptas qui asperiores dolores nam quo possimus sit.', '2021-05-31 22:51:47', 1, '2021-02-17 20:06:57', '2021-02-17 20:06:57');
+INSERT INTO `articles` VALUES (71, 2, 'Repudiandae labore sit numquam sit.', 'repudiandae-labore-sit-numquam-sit', 'Doloremque praesentium animi excepturi aliquam sit natus animi. Doloribus assumenda molestiae consequatur qui voluptatibus ipsum neque voluptatibus. Explicabo natus sed voluptatem labore illo. Ex enim ipsam nostrum deserunt aut sapiente ut omnis.', '2021-10-09 22:52:00', 0, '2021-02-17 20:06:57', '2021-02-17 20:06:57');
+INSERT INTO `articles` VALUES (72, 2, 'Consequatur et qui rerum debitis.', 'consequatur-et-qui-rerum-debitis', 'Saepe veritatis sed officia accusamus. Dolores et aut asperiores autem dolorum perferendis occaecati laboriosam. Voluptatem quis ex corporis temporibus tenetur sapiente dolor. Est iste voluptate qui veniam tempora rerum.', '2021-03-31 16:10:41', 1, '2021-02-17 20:06:57', '2021-02-17 20:06:57');
+INSERT INTO `articles` VALUES (73, 2, 'Qui qui quo tenetur dolorem omnis et omnis vero.', 'qui-qui-quo-tenetur-dolorem-omnis-et-omnis-vero', 'Expedita voluptate officiis vel. Quidem adipisci placeat aliquam non quis adipisci et. Enim iure neque consectetur ut quasi possimus.', '2021-12-12 21:03:38', 1, '2021-02-17 20:06:57', '2021-02-17 20:06:57');
+INSERT INTO `articles` VALUES (74, 2, 'Neque quibusdam qui omnis vitae id.', 'neque-quibusdam-qui-omnis-vitae-id', 'Quisquam qui nemo cum libero. Et omnis vel recusandae incidunt. Qui recusandae quia dolorem.', '2021-09-02 20:51:58', 1, '2021-02-17 20:06:57', '2021-02-17 20:06:57');
+INSERT INTO `articles` VALUES (75, 1, 'Dolore ad ut dignissimos omnis perferendis et.', 'dolore-ad-ut-dignissimos-omnis-perferendis-et', 'Et sit et a quas aut rem qui ea. Sint aut mollitia enim quo numquam minus nostrum atque. Ab autem architecto cum et. Et alias quam tempora vero mollitia aliquam sint. Delectus velit voluptatibus modi natus aliquid facilis.', '2021-09-14 02:49:52', 1, '2021-02-17 20:06:57', '2021-02-17 20:06:57');
+INSERT INTO `articles` VALUES (76, 2, 'Autem earum qui vitae omnis.', 'autem-earum-qui-vitae-omnis', 'Atque quis voluptas sunt ea tempora voluptas accusantium qui. Sed ut quos atque neque. Repellendus modi a explicabo eveniet itaque sed.', '2022-02-08 10:25:46', 1, '2021-02-17 20:06:57', '2021-02-17 20:06:57');
+INSERT INTO `articles` VALUES (77, 1, 'Ipsum voluptas fuga atque eos.', 'ipsum-voluptas-fuga-atque-eos', 'Officia quae recusandae tenetur. Culpa repellat qui dolore. Consequatur est eius natus quisquam.', '2020-08-19 10:16:39', 1, '2021-02-17 20:06:57', '2021-02-17 20:06:57');
+INSERT INTO `articles` VALUES (78, 1, 'Sapiente molestiae rerum sed voluptatibus.', 'sapiente-molestiae-rerum-sed-voluptatibus', 'Error rerum soluta itaque sequi aut cumque aut. Alias nisi corporis ipsum ipsam. Aliquid est maiores rerum iste ratione.', '2020-04-10 04:29:47', 1, '2021-02-17 20:06:57', '2021-02-17 20:06:57');
+INSERT INTO `articles` VALUES (79, 1, 'Assumenda eum autem cum dolorem.', 'assumenda-eum-autem-cum-dolorem', 'Omnis non eius ipsum veritatis. Harum saepe nihil incidunt quo et omnis.', '2021-06-05 12:44:58', 1, '2021-02-17 20:06:57', '2021-02-17 20:06:57');
+INSERT INTO `articles` VALUES (80, 2, 'Neque nesciunt iste consequatur.', 'neque-nesciunt-iste-consequatur', 'Cum recusandae reprehenderit ad qui sapiente molestiae rerum eos. Temporibus inventore repellat dolores molestias qui neque. Sunt aut earum debitis laboriosam quia.', '2021-03-08 03:35:11', 1, '2021-02-17 20:06:57', '2021-02-17 20:06:57');
+INSERT INTO `articles` VALUES (81, 1, 'Nemo voluptates blanditiis quod.', 'nemo-voluptates-blanditiis-quod', 'Suscipit rerum quia vel quia neque harum aspernatur. Corrupti deleniti sit commodi dolorum. Officia assumenda quasi vel aut deserunt qui deleniti.', '2020-12-30 21:42:56', 0, '2021-02-17 20:06:57', '2021-02-17 20:06:57');
+INSERT INTO `articles` VALUES (82, 1, 'Assumenda earum cupiditate quod.', 'assumenda-earum-cupiditate-quod', 'Quis et et voluptatibus maiores sunt. Et voluptate quo quam ipsam natus fugit. Et tempora consequatur corporis. Cupiditate qui voluptates dignissimos nihil et.', '2020-06-21 10:56:40', 1, '2021-02-17 20:06:57', '2021-02-17 20:06:57');
+INSERT INTO `articles` VALUES (83, 2, 'Repudiandae numquam sint beatae quia.', 'repudiandae-numquam-sint-beatae-quia', 'Nisi odio doloremque facere eos alias. Et non eos nobis rem est ut. Sunt a adipisci quod accusamus.', '2020-08-30 11:39:49', 1, '2021-02-17 20:06:57', '2021-02-17 20:06:57');
+INSERT INTO `articles` VALUES (84, 1, 'Ducimus laudantium animi asperiores vero numquam.', 'ducimus-laudantium-animi-asperiores-vero-numquam', 'Dolore debitis et dolorem a aut distinctio. Et commodi enim hic. Est sit rerum quia quae deserunt. Earum non dolores maiores quia.', '2020-07-03 00:42:38', 1, '2021-02-17 20:06:57', '2021-02-17 20:06:57');
+INSERT INTO `articles` VALUES (85, 1, 'Nemo ducimus ratione nihil.', 'nemo-ducimus-ratione-nihil', 'Nemo veniam distinctio quos maiores et. Quo deserunt at eius rerum et blanditiis voluptas. In quia sunt autem velit quasi itaque ipsum. Enim porro vel omnis sit aut.', '2020-06-25 20:32:29', 1, '2021-02-17 20:06:57', '2021-02-17 20:06:57');
+INSERT INTO `articles` VALUES (86, 2, 'Velit tempore placeat ad quo id.', 'velit-tempore-placeat-ad-quo-id', 'Voluptas aut quaerat vel tempora aut. Rerum nam autem ut aliquam quae corporis.', '2020-09-03 09:37:02', 1, '2021-02-17 20:06:57', '2021-02-17 20:06:57');
+INSERT INTO `articles` VALUES (87, 2, 'Officia est non dolores praesentium quas.', 'officia-est-non-dolores-praesentium-quas', 'Sed rerum quibusdam sint hic cumque. Praesentium omnis iusto sint. Porro nisi tempore dignissimos. Dolor accusamus ab aut facere placeat est illum. Aut molestiae maxime qui cum in explicabo enim. At quam aperiam consequatur nam omnis.', '2020-09-14 16:26:03', 1, '2021-02-17 20:06:57', '2021-02-17 20:06:57');
+INSERT INTO `articles` VALUES (88, 1, 'Suscipit ducimus est earum qui consequatur rerum.', 'suscipit-ducimus-est-earum-qui-consequatur-rerum', 'Soluta et minus quia rerum. Sunt neque doloribus sint hic consequuntur dolorum. Incidunt rerum deserunt vero quidem reiciendis.', '2020-02-23 00:33:15', 1, '2021-02-17 20:06:57', '2021-02-17 20:06:57');
+INSERT INTO `articles` VALUES (89, 2, 'Iure ut qui quo alias voluptatem esse.', 'iure-ut-qui-quo-alias-voluptatem-esse', 'Aperiam sequi voluptates inventore voluptatum qui quia labore neque. Sed aspernatur quia similique sunt dolores numquam. Quis amet consequuntur blanditiis est illum consequatur sed.', '2021-10-27 09:53:13', 1, '2021-02-17 20:06:57', '2021-02-17 20:06:57');
+INSERT INTO `articles` VALUES (90, 1, 'Nemo praesentium placeat et dolores.', 'nemo-praesentium-placeat-et-dolores', 'Facilis neque magni ab sint odio eum recusandae. Corporis similique sunt voluptates aut corporis occaecati vero cupiditate. Repellendus dolores modi est beatae quos culpa.', '2020-06-14 13:00:43', 1, '2021-02-17 20:06:57', '2021-02-17 20:06:57');
+INSERT INTO `articles` VALUES (91, 2, 'Quo dolorem ex doloribus id eveniet est.', 'quo-dolorem-ex-doloribus-id-eveniet-est', 'Voluptatum et numquam consectetur qui. Eius autem omnis mollitia sit dolore deserunt magnam. Occaecati et nihil aut ut magnam.', '2021-12-16 19:37:57', 0, '2021-02-17 20:06:57', '2021-02-17 20:06:57');
+INSERT INTO `articles` VALUES (92, 2, 'Ducimus nam aliquam debitis enim eos ipsum.', 'ducimus-nam-aliquam-debitis-enim-eos-ipsum', 'Minus hic et ut temporibus iusto consequatur. Reprehenderit mollitia ex neque dolores a.', '2021-03-23 12:12:48', 1, '2021-02-17 20:06:57', '2021-02-17 20:06:57');
+INSERT INTO `articles` VALUES (93, 2, 'Quam commodi est hic et dolorum et debitis.', 'quam-commodi-est-hic-et-dolorum-et-debitis', 'Voluptas qui modi alias necessitatibus eos aliquam ut. Et quia officia voluptas illo. Ab minus et reiciendis vel dolorem culpa repellat et.', '2020-05-16 23:03:45', 1, '2021-02-17 20:06:57', '2021-02-17 20:06:57');
+INSERT INTO `articles` VALUES (94, 2, 'Cupiditate ducimus unde veritatis aut voluptatem.', 'cupiditate-ducimus-unde-veritatis-aut-voluptatem', 'Eos facere recusandae molestiae ab molestias autem. Ut culpa iusto debitis voluptatem mollitia. Odio qui accusantium voluptatem et.', '2021-08-20 13:17:03', 1, '2021-02-17 20:06:57', '2021-02-17 20:06:57');
+INSERT INTO `articles` VALUES (95, 1, 'Doloribus vitae quia nobis ducimus.', 'doloribus-vitae-quia-nobis-ducimus', 'Aut reiciendis ipsam tempora rem et. Doloribus ea tenetur sed voluptate laborum.', '2021-12-22 01:59:43', 1, '2021-02-17 20:06:57', '2021-02-17 20:06:57');
+INSERT INTO `articles` VALUES (96, 1, 'Incidunt eius sunt sed maxime.', 'incidunt-eius-sunt-sed-maxime', 'Repudiandae dolores culpa cum est repudiandae quia. Reprehenderit quod amet vel alias. Neque eos ipsum modi animi. Quam id non excepturi debitis aut.', '2021-03-03 12:46:36', 1, '2021-02-17 20:06:57', '2021-02-17 20:06:57');
+INSERT INTO `articles` VALUES (97, 1, 'Non ratione provident voluptates pariatur ipsa.', 'non-ratione-provident-voluptates-pariatur-ipsa', 'Voluptatem sint ad occaecati. Labore consequuntur temporibus suscipit quibusdam. Itaque temporibus dolore ratione exercitationem.', '2020-07-01 16:30:34', 1, '2021-02-17 20:06:57', '2021-02-17 20:06:57');
+INSERT INTO `articles` VALUES (98, 2, 'Magnam sed autem et omnis.', 'magnam-sed-autem-et-omnis', 'Voluptas id accusamus rerum. Nam odio est quas consequatur exercitationem. Rem assumenda ex quidem sunt voluptatem illo quasi. Corporis ratione est eaque labore consequatur cum.', '2021-07-03 04:15:30', 1, '2021-02-17 20:06:57', '2021-02-17 20:06:57');
+INSERT INTO `articles` VALUES (99, 2, 'Nobis beatae sequi ad soluta.', 'nobis-beatae-sequi-ad-soluta', 'Sit ex aut qui commodi. Quos consequatur id necessitatibus voluptatem. Facilis non placeat quia molestiae.', '2021-05-19 18:01:50', 1, '2021-02-17 20:06:57', '2021-02-17 20:06:57');
+INSERT INTO `articles` VALUES (100, 2, 'Et velit dignissimos fugit impedit ipsa iste.', 'et-velit-dignissimos-fugit-impedit-ipsa-iste', 'Beatae ullam perspiciatis mollitia maiores occaecati atque alias. Voluptatum quia aspernatur occaecati impedit. Nihil aperiam numquam itaque dolor nulla vel et. Illo quis deserunt labore. Nostrum et minima et commodi ea.', '2021-03-14 08:54:42', 1, '2021-02-17 20:06:57', '2021-02-17 20:06:57');
+INSERT INTO `articles` VALUES (101, 1, 'api store', 'api-store', 'api store', '2021-02-17 20:43:54', 1, '2021-02-17 20:43:54', '2021-02-17 20:43:54');
+INSERT INTO `articles` VALUES (102, 1, 'api store2', 'api-store2', 'api store2', '2021-02-17 20:45:12', 0, '2021-02-17 20:45:12', '2021-02-17 21:32:17');
+
+-- ----------------------------
+-- Table structure for failed_jobs
+-- ----------------------------
+DROP TABLE IF EXISTS `failed_jobs`;
+CREATE TABLE `failed_jobs`  (
+  `id` bigint(0) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `uuid` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `connection` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `queue` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `payload` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `exception` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `failed_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP(0),
+  PRIMARY KEY (`id`) USING BTREE,
+  UNIQUE INDEX `failed_jobs_uuid_unique`(`uuid`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table structure for migrations
+-- ----------------------------
+DROP TABLE IF EXISTS `migrations`;
+CREATE TABLE `migrations`  (
+  `id` int(0) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `migration` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `batch` int(0) NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of migrations
+-- ----------------------------
+INSERT INTO `migrations` VALUES (1, '2014_10_12_000000_create_users_table', 1);
+INSERT INTO `migrations` VALUES (2, '2014_10_12_100000_create_password_resets_table', 1);
+INSERT INTO `migrations` VALUES (3, '2014_10_12_200000_add_two_factor_columns_to_users_table', 1);
+INSERT INTO `migrations` VALUES (4, '2016_06_01_000001_create_oauth_auth_codes_table', 1);
+INSERT INTO `migrations` VALUES (5, '2016_06_01_000002_create_oauth_access_tokens_table', 1);
+INSERT INTO `migrations` VALUES (6, '2016_06_01_000003_create_oauth_refresh_tokens_table', 1);
+INSERT INTO `migrations` VALUES (7, '2016_06_01_000004_create_oauth_clients_table', 1);
+INSERT INTO `migrations` VALUES (8, '2016_06_01_000005_create_oauth_personal_access_clients_table', 1);
+INSERT INTO `migrations` VALUES (9, '2019_08_19_000000_create_failed_jobs_table', 1);
+INSERT INTO `migrations` VALUES (10, '2021_02_15_171356_create_permission_tables', 1);
+INSERT INTO `migrations` VALUES (11, '2021_02_15_183157_create_articles_table', 1);
+INSERT INTO `migrations` VALUES (12, '2021_02_16_172436_create_article_ratings_table', 1);
+
+-- ----------------------------
+-- Table structure for model_has_roles
+-- ----------------------------
+DROP TABLE IF EXISTS `model_has_roles`;
+CREATE TABLE `model_has_roles`  (
+  `role_id` bigint(0) UNSIGNED NOT NULL,
+  `model_type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `model_id` bigint(0) UNSIGNED NOT NULL,
+  PRIMARY KEY (`role_id`, `model_id`, `model_type`) USING BTREE,
+  INDEX `model_has_roles_model_id_model_type_index`(`model_id`, `model_type`) USING BTREE,
+  CONSTRAINT `model_has_roles_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of model_has_roles
+-- ----------------------------
+INSERT INTO `model_has_roles` VALUES (1, 'App\\Models\\User', 1);
+INSERT INTO `model_has_roles` VALUES (3, 'App\\Models\\User', 2);
+INSERT INTO `model_has_roles` VALUES (4, 'App\\Models\\User', 3);
+INSERT INTO `model_has_roles` VALUES (4, 'App\\Models\\User', 4);
+INSERT INTO `model_has_roles` VALUES (4, 'App\\Models\\User', 5);
+INSERT INTO `model_has_roles` VALUES (4, 'App\\Models\\User', 6);
+INSERT INTO `model_has_roles` VALUES (4, 'App\\Models\\User', 7);
+INSERT INTO `model_has_roles` VALUES (4, 'App\\Models\\User', 8);
+INSERT INTO `model_has_roles` VALUES (4, 'App\\Models\\User', 9);
+INSERT INTO `model_has_roles` VALUES (4, 'App\\Models\\User', 10);
+INSERT INTO `model_has_roles` VALUES (4, 'App\\Models\\User', 11);
+INSERT INTO `model_has_roles` VALUES (4, 'App\\Models\\User', 12);
+INSERT INTO `model_has_roles` VALUES (4, 'App\\Models\\User', 13);
+INSERT INTO `model_has_roles` VALUES (4, 'App\\Models\\User', 14);
+
+-- ----------------------------
+-- Table structure for oauth_access_tokens
+-- ----------------------------
+DROP TABLE IF EXISTS `oauth_access_tokens`;
+CREATE TABLE `oauth_access_tokens`  (
+  `id` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_id` bigint(0) UNSIGNED NULL DEFAULT NULL,
+  `client_id` bigint(0) UNSIGNED NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `scopes` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL,
+  `revoked` tinyint(1) NOT NULL,
+  `created_at` timestamp(0) NULL DEFAULT NULL,
+  `updated_at` timestamp(0) NULL DEFAULT NULL,
+  `expires_at` datetime(0) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `oauth_access_tokens_user_id_index`(`user_id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of oauth_access_tokens
+-- ----------------------------
+INSERT INTO `oauth_access_tokens` VALUES ('36639ea70c760b6c3a865959781b6cb89f9cfeccbabc143188a298fb4a6dd26beff23adf255ea54d', 1, 2, NULL, '[]', 0, '2021-02-17 20:18:07', '2021-02-17 20:18:07', '2021-02-17 22:18:05');
+INSERT INTO `oauth_access_tokens` VALUES ('db8b6b5e448faecf53caec5e5905aef44e958d3ea539c096bbd2de1c1c20f4ac8634680e65a7881f', 1, 2, NULL, '[]', 0, '2021-02-17 20:17:25', '2021-02-17 20:17:25', '2021-02-17 22:17:25');
+
+-- ----------------------------
+-- Table structure for oauth_auth_codes
+-- ----------------------------
+DROP TABLE IF EXISTS `oauth_auth_codes`;
+CREATE TABLE `oauth_auth_codes`  (
+  `id` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_id` bigint(0) UNSIGNED NOT NULL,
+  `client_id` bigint(0) UNSIGNED NOT NULL,
+  `scopes` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL,
+  `revoked` tinyint(1) NOT NULL,
+  `expires_at` datetime(0) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `oauth_auth_codes_user_id_index`(`user_id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table structure for oauth_clients
+-- ----------------------------
+DROP TABLE IF EXISTS `oauth_clients`;
+CREATE TABLE `oauth_clients`  (
+  `id` bigint(0) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `user_id` bigint(0) UNSIGNED NULL DEFAULT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `secret` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `provider` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `redirect` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `personal_access_client` tinyint(1) NOT NULL,
+  `password_client` tinyint(1) NOT NULL,
+  `revoked` tinyint(1) NOT NULL,
+  `created_at` timestamp(0) NULL DEFAULT NULL,
+  `updated_at` timestamp(0) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `oauth_clients_user_id_index`(`user_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of oauth_clients
+-- ----------------------------
+INSERT INTO `oauth_clients` VALUES (1, NULL, 'Laravel Personal Access Client', 'hjnNEECTd806uEX8yLoqxa6sqAqI46ZS2APstTm0', NULL, 'http://localhost', 1, 0, 0, '2021-02-17 20:16:24', '2021-02-17 20:16:24');
+INSERT INTO `oauth_clients` VALUES (2, NULL, 'Laravel Password Grant Client', 't7MrzMJjYBkJ1THKmV3bLsWTuiZopXhFtgheeBT9', 'users', 'http://localhost', 0, 1, 0, '2021-02-17 20:16:24', '2021-02-17 20:16:24');
+
+-- ----------------------------
+-- Table structure for oauth_personal_access_clients
+-- ----------------------------
+DROP TABLE IF EXISTS `oauth_personal_access_clients`;
+CREATE TABLE `oauth_personal_access_clients`  (
+  `id` bigint(0) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `client_id` bigint(0) UNSIGNED NOT NULL,
+  `created_at` timestamp(0) NULL DEFAULT NULL,
+  `updated_at` timestamp(0) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of oauth_personal_access_clients
+-- ----------------------------
+INSERT INTO `oauth_personal_access_clients` VALUES (1, 1, '2021-02-17 20:16:24', '2021-02-17 20:16:24');
+
+-- ----------------------------
+-- Table structure for oauth_refresh_tokens
+-- ----------------------------
+DROP TABLE IF EXISTS `oauth_refresh_tokens`;
+CREATE TABLE `oauth_refresh_tokens`  (
+  `id` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `access_token_id` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `revoked` tinyint(1) NOT NULL,
+  `expires_at` datetime(0) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `oauth_refresh_tokens_access_token_id_index`(`access_token_id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of oauth_refresh_tokens
+-- ----------------------------
+INSERT INTO `oauth_refresh_tokens` VALUES ('96d0814b1276b33d47884d13f4b0b2af978a551feb56ab0c185a371107f42730a958c392014ae47f', 'db8b6b5e448faecf53caec5e5905aef44e958d3ea539c096bbd2de1c1c20f4ac8634680e65a7881f', 0, '2021-03-19 20:17:25');
+INSERT INTO `oauth_refresh_tokens` VALUES ('f6856eab36fc198609ba4e6fb4efcd3bc91088459381c737baf4d9004f3f3b232490d379c6bf0346', '36639ea70c760b6c3a865959781b6cb89f9cfeccbabc143188a298fb4a6dd26beff23adf255ea54d', 0, '2021-03-19 20:18:05');
+
+-- ----------------------------
+-- Table structure for password_resets
+-- ----------------------------
+DROP TABLE IF EXISTS `password_resets`;
+CREATE TABLE `password_resets`  (
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp(0) NULL DEFAULT NULL,
+  INDEX `password_resets_email_index`(`email`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table structure for permissions
+-- ----------------------------
+DROP TABLE IF EXISTS `permissions`;
+CREATE TABLE `permissions`  (
+  `id` bigint(0) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `guard_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp(0) NULL DEFAULT NULL,
+  `updated_at` timestamp(0) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  UNIQUE INDEX `permissions_name_guard_name_unique`(`name`, `guard_name`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table structure for role_has_permissions
+-- ----------------------------
+DROP TABLE IF EXISTS `role_has_permissions`;
+CREATE TABLE `role_has_permissions`  (
+  `permission_id` bigint(0) UNSIGNED NOT NULL,
+  `role_id` bigint(0) UNSIGNED NOT NULL,
+  PRIMARY KEY (`permission_id`, `role_id`) USING BTREE,
+  INDEX `role_has_permissions_role_id_foreign`(`role_id`) USING BTREE,
+  CONSTRAINT `role_has_permissions_ibfk_1` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT,
+  CONSTRAINT `role_has_permissions_ibfk_2` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table structure for roles
+-- ----------------------------
+DROP TABLE IF EXISTS `roles`;
+CREATE TABLE `roles`  (
+  `id` bigint(0) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `guard_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp(0) NULL DEFAULT NULL,
+  `updated_at` timestamp(0) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  UNIQUE INDEX `roles_name_guard_name_unique`(`name`, `guard_name`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of roles
+-- ----------------------------
+INSERT INTO `roles` VALUES (1, 'Admin', 'web', '2021-02-17 20:06:55', '2021-02-17 20:06:55');
+INSERT INTO `roles` VALUES (2, 'Moderator', 'web', '2021-02-17 20:06:55', '2021-02-17 20:06:55');
+INSERT INTO `roles` VALUES (3, 'Writer', 'web', '2021-02-17 20:06:55', '2021-02-17 20:06:55');
+INSERT INTO `roles` VALUES (4, 'Reader', 'web', '2021-02-17 20:06:55', '2021-02-17 20:06:55');
+
+-- ----------------------------
+-- Table structure for users
+-- ----------------------------
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE `users`  (
+  `id` bigint(0) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email_verified_at` timestamp(0) NULL DEFAULT NULL,
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `two_factor_secret` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL,
+  `two_factor_recovery_codes` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL,
+  `remember_token` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `created_at` timestamp(0) NULL DEFAULT NULL,
+  `updated_at` timestamp(0) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  UNIQUE INDEX `users_email_unique`(`email`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of users
+-- ----------------------------
+INSERT INTO `users` VALUES (1, 'admin', 'admin@mobillium.com', NULL, '$2y$10$y0vclgTXY2fS0it/poJjy.tsH2i81PQad5zsGOHCi/ya9dqWU9ATW', NULL, NULL, '9l4svqxbDGEdEOsHCZs13dQMMrBicUzrQ2kwMCyC4onVf3Nn7OCFH55V5iWa', '2021-02-17 20:06:55', '2021-02-17 20:06:55');
+INSERT INTO `users` VALUES (2, 'writer1', 'writer1@mobillium.com', NULL, '$2y$10$RVkUJvBd3yPA4GRFW8lGpe0YncxbIQ0H/HblgybMfECyOXmA9gYpW', NULL, NULL, '6RtqOPBujkmW5X3pYq0VNN2ABmZ3yYLy7hwoZlpB1tMJK1XeLKwaOrGMNDyr', '2021-02-17 20:06:55', '2021-02-17 20:06:55');
+INSERT INTO `users` VALUES (3, 'Dayne Oberbrunner', 'jonatan.wilderman@hotmail.com', NULL, '$2y$10$lp2s7bK1GZ/N26NBe45axOzfLzh/X9ixOAeP0YQgzqBd9EEiFLhrK', NULL, NULL, NULL, '2021-02-17 20:06:58', '2021-02-17 20:06:58');
+INSERT INTO `users` VALUES (4, 'Caroline Goodwin', 'joseph52@yahoo.com', NULL, '$2y$10$TyYh22z2rNorqIDxzOrJAuChKpVre//P6/Ni/Ct9Yb/oomci5rk3e', NULL, NULL, NULL, '2021-02-17 20:06:58', '2021-02-17 20:06:58');
+INSERT INTO `users` VALUES (5, 'Jan Mayer', 'rasheed.dubuque@kub.com', NULL, '$2y$10$IaNJLSwYgTQo9c6Nk/t7weNWkNwbfyxr6sZeUCWi0FhXe7y3CX6su', NULL, NULL, NULL, '2021-02-17 20:06:58', '2021-02-17 20:06:58');
+INSERT INTO `users` VALUES (6, 'Ezequiel Corkery', 'veffertz@johns.info', NULL, '$2y$10$WbtvwTgLW9s2dtBhgR.m5euEBecw0Kh.u.3e2lb0/xvmzybjN0fzq', NULL, NULL, NULL, '2021-02-17 20:06:58', '2021-02-17 20:06:58');
+INSERT INTO `users` VALUES (7, 'Dr. Marlene Price Jr.', 'jhomenick@gmail.com', NULL, '$2y$10$aFRc90hBvTHl0l1hfE2kj.3G90sB/KaFBJVpdi8ZQmFbrbD0fc4Jq', NULL, NULL, NULL, '2021-02-17 20:06:59', '2021-02-17 20:06:59');
+INSERT INTO `users` VALUES (8, 'Prof. Francesco Runte', 'tabitha70@gmail.com', NULL, '$2y$10$iWrLfepsHhKjlk9nIUcZbuAzFgKGSlk7US6QpF/rgj9EwKSrEKr.K', NULL, NULL, NULL, '2021-02-17 20:06:59', '2021-02-17 20:06:59');
+INSERT INTO `users` VALUES (9, 'Eldon Watsica', 'ward.kellen@waelchi.com', NULL, '$2y$10$MjJKJCq/.DHdAP9Uljw.Ce/GRP5ZSgv3Pa..VpZpU8aE5/YUynYfy', NULL, NULL, NULL, '2021-02-17 20:06:59', '2021-02-17 20:06:59');
+INSERT INTO `users` VALUES (10, 'Kane Douglas Sr.', 'irath@gorczany.com', NULL, '$2y$10$hb.KlwtgrT53EbNwOMs1ruU9MdyLLrloyh3uBKj48hjgErWTdN8aa', NULL, NULL, NULL, '2021-02-17 20:06:59', '2021-02-17 20:06:59');
+INSERT INTO `users` VALUES (11, 'Mrs. Jeanette Ebert', 'karen.lueilwitz@abshire.com', NULL, '$2y$10$Ce6J71maR.v2lGwZp/LPLOmP/M6HXd5MZWDTWqN1x0GkmxEc4WEH2', NULL, NULL, NULL, '2021-02-17 20:06:59', '2021-02-17 20:06:59');
+INSERT INTO `users` VALUES (12, 'Mr. Raphael Hyatt', 'braeden31@thiel.com', NULL, '$2y$10$jlKQJZ/kWzaWt3wGV7emCOFkW4oJ48wpNqElG/.Nr.r0.dFU3e/3K', NULL, NULL, NULL, '2021-02-17 20:07:00', '2021-02-17 20:07:00');
+INSERT INTO `users` VALUES (13, 'Domenico Medhurst', 'nayeli.jerde@leffler.com', NULL, '$2y$10$NJC8f3R.wMM1lqbOSxGXd.zn/i5f9.G0Ir.1Fa2iRTo7vvwR8XbRG', NULL, NULL, NULL, '2021-02-17 20:07:00', '2021-02-17 20:07:00');
+INSERT INTO `users` VALUES (14, 'Dr. Chadrick Runolfsson DVM', 'nakia61@rohan.com', NULL, '$2y$10$IVSVhg9XjRlv9bojunkOEeuKAUdzDcirvB.tDdfKEG8YP/Zr04kvC', NULL, NULL, NULL, '2021-02-17 20:07:00', '2021-02-17 20:07:00');
+
+SET FOREIGN_KEY_CHECKS = 1;
