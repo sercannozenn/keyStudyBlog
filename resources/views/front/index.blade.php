@@ -50,7 +50,7 @@
                     </div>
                 </div>
             @endforeach
-            <div class="col-md-12">
+            <div class="col-md-12 mt-4">
                 {{ $list->links() }}
             </div>
         </div>

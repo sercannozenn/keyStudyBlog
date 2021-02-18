@@ -35,7 +35,12 @@ class ArticleRepository
 
     public function getAllArticle()
     {
-        return $this->article->skipCache()->UserArticles()->with('user')->paginate(10);
+        return $this->article
+            ->skipCache()
+            ->UserArticles()
+            ->with('user')
+            ->orderBy('publish_date', 'DESC')
+            ->paginate(10);
     }
 
     public function getAllArticleFront()
@@ -44,18 +49,25 @@ class ArticleRepository
             ->with('user')
             ->StatusActive()
             ->Published()
+            ->orderBy('publish_date', 'DESC')
             ->paginate(12);
     }
 
     public function getById($id)
     {
-        return $this->article->skipCache()->UserArticles()->findOrFail($id);
+        return $this->article
+            ->skipCache()
+            ->UserArticles()
+            ->findOrFail($id);
     }
 
     public function updateArticle($id, $data)
     {
         $data = (object)$data;
-        $article = $this->article->skipCache()->UserArticles()->findOrFail($id);
+        $article = $this->article
+            ->skipCache()
+            ->UserArticles()
+            ->findOrFail($id);
         $article->title = $data->title;
         $article->slug = $data->slug;
         $article->body = $data->body;
@@ -72,13 +84,21 @@ class ArticleRepository
 
     public function deleteById($id)
     {
-        $article = $this->article->skipCache()->UserArticles()->where('id', $id)->firstOrFail();
+        $article = $this->article
+            ->skipCache()
+            ->UserArticles()
+            ->where('id', $id)
+            ->firstOrFail();
         return $article->delete();
     }
 
     public function changeStatusById($id)
     {
-        $article = $this->article->skipCache()->UserArticles()->where('id', $id)->firstOrFail();
+        $article = $this->article
+            ->skipCache()
+            ->UserArticles()
+            ->where('id', $id)
+            ->firstOrFail();
         $article->status = $article->status ? 0 : 1;
         $article->save();
         return $article;
