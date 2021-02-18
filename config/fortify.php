@@ -61,28 +61,8 @@ return [
     |
     */
 
-    'home' => function ()
-    {
-        $user = \Illuminate\Support\Facades\Auth::user()->roles;
+    'home' => RouteServiceProvider::HOME,
 
-        if ($user)
-        {
-            switch ($user[0]->name)
-            {
-                case 'Admin':
-                    return route('dashboard');
-                case 'Moderator':
-                    return route('dashboard');
-                case 'Writer':
-                    return route('dashboard');
-                case 'Reader':
-                    return route('index');
-                default:
-                    return route('index');
-            }
-        }
-        return '/';
-    },
 
     /*
     |--------------------------------------------------------------------------

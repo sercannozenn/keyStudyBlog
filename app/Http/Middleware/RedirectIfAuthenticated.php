@@ -29,20 +29,18 @@ class RedirectIfAuthenticated
                 switch ($role)
                 {
                     case 'Admin':
-                        return redirect()->route('admin.index');
+                        return redirect()->route('dashboard');
                     case 'Moderator':
-                        return redirect()->route('moderator.index');
+                        return redirect()->route('dashboard');
                     case 'Writer':
-                        return redirect()->route('writer.index');
+                        return redirect()->route('dashboard');
                     case 'Reader':
-                        return redirect()->route('reader.index');
+                        return redirect()->route('index');
                     default:
                         return redirect()->route('index');
                 }
-                return redirect(RouteServiceProvider::HOME);
             }
         }
-
         return $next($request);
     }
 }
